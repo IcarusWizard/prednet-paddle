@@ -5,8 +5,7 @@ from paddle.io import Dataset
 
 # Data generator that creates sequences for input into PredNet.
 class SequenceDataset(Dataset):
-    def __init__(self, data_file, nt,
-                 output_mode='error', sequence_start_mode='all', N_seq=None):
+    def __init__(self, data_file, nt, sequence_start_mode='all', N_seq=None):
         
         super().__init__()
         with h5py.File(data_file, 'r') as h5file:
@@ -16,8 +15,6 @@ class SequenceDataset(Dataset):
 
         assert sequence_start_mode in {'all', 'unique'}, 'sequence_start_mode must be in {all, unique}'
         self.sequence_start_mode = sequence_start_mode
-        assert output_mode in {'error', 'prediction'}, 'output_mode must be in {error, prediction}'
-        self.output_mode = output_mode
 
         self.X = np.transpose(self.X, (0, 3, 1, 2))
         self.im_shape = self.X[0].shape
@@ -47,19 +44,10 @@ class SequenceDataset(Dataset):
         index = self.possible_starts[index]
         return self.preprocess(self.X[index:index+self.nt])
 
-    def next(self):
-        with self.lock:
-            current_index = (self.batch_index * self.batch_size) % self.n
-            index_array, current_batch_size = next(self.index_generator), self.batch_size
-        batch_x = np.zeros((current_batch_size, self.nt) + self.im_shape, np.float32)
-        for i, idx in enumerate(index_array):
-            idx = self.possible_starts[idx]
-            batch_x[i] = self.preprocess(self.X[idx:idx+self.nt])
-        if self.output_mode == 'error':  # model outputs errors, so y should be zeros
-            batch_y = np.zeros(current_batch_size, np.float32)
-        elif self.output_mode == 'prediction':  # output actual pixels
-            batch_y = batch_x
-        return batch_x, batch_y
-
     def preprocess(self, X):
         return X.astype(np.float32) / 255
+
+def infinite_loading(dataloader):
+    while True:
+        for data in iter(dataloader):
+            yield data
