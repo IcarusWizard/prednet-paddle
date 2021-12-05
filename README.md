@@ -35,7 +35,7 @@ PredNet是一个利用神经生物学中的预测性编码（Predictive Coding�
 
 在此非常感谢`@coxlab`等人贡献的[prednet](https://github.com/coxlab/prednet)，提高了本repo复现论文的效率。
 
-**aistudio体验教程:** [地址](url)
+**aistudio体验教程:** [地址](https://aistudio.baidu.com/aistudio/projectdetail/3190170)
 
 ## 2. 数据集和复现精度
 
@@ -55,7 +55,7 @@ PredNet是一个利用神经生物学中的预测性编码（Predictive Coding�
 |KITTI|0.007000|0.006995|**0.006900**|
 
 训练日志链接：[log](/logs/train.log)
-权重文件链接：[weight]()
+权重文件链接：[weight](https://github.com/IcarusWizard/prednet-paddle/releases/download/v0.1/prednet_kitti_weights.pdparams)
 
 ## 3. 开始使用
 
@@ -73,7 +73,7 @@ PredNet是一个利用神经生物学中的预测性编码（Predictive Coding�
 
 #### 加载官方预训练参数 (仅用于与官方代码对齐)
 ```bash
-bash download_models.sh
+bash download_original_models.sh
 python kitti_evaluate.py --weight_file model_data_keras2/tensorflow_weights/prednet_kitti_weights.hdf5
 ```
 
