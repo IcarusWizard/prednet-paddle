@@ -21,10 +21,10 @@ class ConvLSTM(nn.Layer):
         self.kernel_size = kernel_size
         self.padding_size = kernel_size // 2
 
-        self.i = nn.Conv2D(self.input_dim + self.output_dim, self.output_dim, self.kernel_size, padding=self.padding_size)
-        self.f = nn.Conv2D(self.input_dim + self.output_dim, self.output_dim, self.kernel_size, padding=self.padding_size)
-        self.c = nn.Conv2D(self.input_dim + self.output_dim, self.output_dim, self.kernel_size, padding=self.padding_size)
-        self.o = nn.Conv2D(self.input_dim + self.output_dim, self.output_dim, self.kernel_size, padding=self.padding_size)
+        self.i = nn.Conv2D(self.input_dim + self.output_dim, self.output_dim, self.kernel_size, padding=self.padding_size, weight_attr=nn.initializer.XavierUniform())
+        self.f = nn.Conv2D(self.input_dim + self.output_dim, self.output_dim, self.kernel_size, padding=self.padding_size, weight_attr=nn.initializer.XavierUniform())
+        self.c = nn.Conv2D(self.input_dim + self.output_dim, self.output_dim, self.kernel_size, padding=self.padding_size, weight_attr=nn.initializer.XavierUniform())
+        self.o = nn.Conv2D(self.input_dim + self.output_dim, self.output_dim, self.kernel_size, padding=self.padding_size, weight_attr=nn.initializer.XavierUniform())
 
         self.sigmoid = activations[inner_activation]()
         self.tanh = activations[output_activation]()
@@ -88,11 +88,6 @@ class PredNet(nn.Layer):
             If 'all', the output will be the frame prediction concatenated with the mean layer errors.
                 The frame prediction is flattened before concatenation.
                 Nomenclature of 'all' is kept for backwards compatibility, but should not be confused with returning all of the layers of the model
-            For returning the features of a particular layer, output_mode should be of the form unit_type + layer_number.
-                For instance, to return the features of the LSTM "representational" units in the lowest layer, output_mode should be specificied as 'R0'.
-                The possible unit types are 'R', 'Ahat', 'A', and 'E' corresponding to the 'representation', 'prediction', 'target', and 'error' units respectively.
-        extrap_start_time: time step for which model will start extrapolating.
-            Starting at this time step, the prediction from the previous time step will be treated as the "actual"
 
     # References
         - [Deep predictive coding networks for video prediction and unsupervised learning](https://arxiv.org/abs/1605.08104)
@@ -111,8 +106,7 @@ class PredNet(nn.Layer):
                  A_activation='relu',
                  LSTM_activation='tanh', 
                  LSTM_inner_activation='hard_sigmoid',
-                 output_mode='error', 
-                 extrap_start_time=None):
+                 output_mode='error'):
 
         super().__init__()
         self.stack_sizes = stack_sizes
@@ -131,16 +125,8 @@ class PredNet(nn.Layer):
         self.up_sampling = nn.Upsample(scale_factor=2)
 
         default_output_modes = ['prediction', 'error', 'all']
-        layer_output_modes = [layer + str(n) for n in range(self.nb_layers) for layer in ['R', 'E', 'A', 'Ahat']]
-        assert output_mode in default_output_modes + layer_output_modes, 'Invalid output_mode: ' + str(output_mode)
+        assert output_mode in default_output_modes, 'Invalid output_mode: ' + str(output_mode)
         self.output_mode = output_mode
-        if self.output_mode in layer_output_modes:
-            self.output_layer_type = self.output_mode[:-1]
-            self.output_layer_num = int(self.output_mode[-1])
-        else:
-            self.output_layer_type = None
-            self.output_layer_num = None
-        self.extrap_start_time = extrap_start_time
 
         '''define the networks'''
         
@@ -161,7 +147,7 @@ class PredNet(nn.Layer):
 
             if l == 0:
                 a_hat_layers.append(nn.Sequential(
-                    nn.Conv2D(self.R_stack_sizes[l], self.stack_sizes[l], kernel_size=self.Ahat_filt_sizes[l], padding=self.Ahat_filt_sizes[l]//2),
+                    nn.Conv2D(self.R_stack_sizes[l], self.stack_sizes[l], kernel_size=self.Ahat_filt_sizes[l], padding=self.Ahat_filt_sizes[l]//2, weight_attr=nn.initializer.XavierUniform()),
                     activations[A_activation](),
                     SATLU(self.pixel_max)
                 ))        
@@ -169,12 +155,12 @@ class PredNet(nn.Layer):
                 a_layers.append(nn.Identity())
             else:
                 a_hat_layers.append(nn.Sequential(
-                    nn.Conv2D(self.R_stack_sizes[l], self.stack_sizes[l], kernel_size=self.Ahat_filt_sizes[l], padding=self.Ahat_filt_sizes[l]//2),
+                    nn.Conv2D(self.R_stack_sizes[l], self.stack_sizes[l], kernel_size=self.Ahat_filt_sizes[l], padding=self.Ahat_filt_sizes[l]//2, weight_attr=nn.initializer.XavierUniform()),
                     activations[A_activation]()
                 ))
             
                 a_layers.append(nn.Sequential(
-                    nn.Conv2D(self.stack_sizes[l-1] * 2, self.stack_sizes[l], kernel_size=self.A_filt_sizes[l-1], padding=self.A_filt_sizes[l-1]//2),
+                    nn.Conv2D(self.stack_sizes[l-1] * 2, self.stack_sizes[l], kernel_size=self.A_filt_sizes[l-1], padding=self.A_filt_sizes[l-1]//2, weight_attr=nn.initializer.XavierUniform()),
                     activations[A_activation](),
                     nn.MaxPool2D(kernel_size=2)
                 ))
@@ -199,7 +185,9 @@ class PredNet(nn.Layer):
             output, states = self.step(sequence[t], states)
             outputs.append(output)
 
-        if self.output_mode == 'prediction':
+        if self.output_mode == 'all':
+            outputs = (paddle.stack([o[0] for o in outputs]), paddle.stack([o[1] for o in outputs]))
+        else:
             outputs = paddle.stack(outputs)
 
         return outputs
@@ -225,9 +213,11 @@ class PredNet(nn.Layer):
             a = errors[l]
 
         if self.output_mode == 'error':
-            output = errors
+            output = paddle.stack([paddle.mean(e.reshape((e.shape[0], -1)), axis=1) for e in errors], axis=-1)
         elif self.output_mode == 'prediction':
             output = frame_prediction
+        elif self.output_mode == 'all':
+            output = (paddle.stack([paddle.mean(e.reshape((e.shape[0], -1)), axis=1) for e in errors], axis=-1), frame_prediction)
 
         return output, (lstm_states, errors)
 
