@@ -1,0 +1,1223 @@
+W1205 12:44:41.166817   276 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 10.1, Runtime API Version: 10.1
+W1205 12:44:41.171645   276 device_context.cc:465] device: 0, cuDNN Version: 7.6.
+Start training!
+Starting epoch 0 current lr is 0.001
+WARNING: Detect dataset only contains single fileds, return format changed since Paddle 2.1. In Paddle <= 2.0, DataLoader add a list surround output data(e.g. return [data]), and in Paddle >= 2.1, DataLoader return the single filed directly (e.g. return data). For example, in following code: 
+
+import numpy as np
+from paddle.io import DataLoader, Dataset
+
+class RandomDataset(Dataset):
+    def __getitem__(self, idx):
+        data = np.random.random((2, 3)).astype('float32')
+
+        return data
+
+    def __len__(self):
+        return 10
+
+dataset = RandomDataset()
+loader = DataLoader(dataset, batch_size=1)
+data = next(loader())
+
+In Paddle <= 2.0, data is in format '[Tensor(shape=(1, 2, 3), dtype=float32)]', and in Paddle >= 2.1, data is in format 'Tensor(shape=(1, 2, 3), dtype=float32)'
+
+Epoch 0, Step 25, total used time 7.178124904632568 (s), avg loss so far is 0.10979227721691132
+Epoch 0, Step 50, total used time 14.059857845306396 (s), avg loss so far is 0.08230332285165787
+Epoch 0, Step 75, total used time 20.90472412109375 (s), avg loss so far is 0.07053857296705246
+Epoch 0, Step 100, total used time 27.7766170501709 (s), avg loss so far is 0.06483017653226852
+Epoch 0, Step 125, total used time 34.65326642990112 (s), avg loss so far is 0.060312215238809586
+Epoch 0, val loss is 0.0477195605635643, val mse is 0.024224352091550827.
+Epoch 0, test mse is 0.017013896256685257.
+Starting epoch 1 current lr is 0.001
+Epoch 1, Step 25, total used time 47.7331485748291 (s), avg loss so far is 0.039579056203365326
+Epoch 1, Step 50, total used time 54.58207607269287 (s), avg loss so far is 0.03940480202436447
+Epoch 1, Step 75, total used time 61.40306520462036 (s), avg loss so far is 0.03907234966754913
+Epoch 1, Step 100, total used time 68.1941785812378 (s), avg loss so far is 0.03844276815652847
+Epoch 1, Step 125, total used time 75.02966952323914 (s), avg loss so far is 0.03795919939875603
+Epoch 1, val loss is 0.04526732861995697, val mse is 0.02198055572807789.
+Epoch 1, test mse is 0.014877349138259888.
+Starting epoch 2 current lr is 0.001
+Epoch 2, Step 25, total used time 87.51438975334167 (s), avg loss so far is 0.03452466055750847
+Epoch 2, Step 50, total used time 94.66090440750122 (s), avg loss so far is 0.03606506809592247
+Epoch 2, Step 75, total used time 101.45370364189148 (s), avg loss so far is 0.03529812768101692
+Epoch 2, Step 100, total used time 108.29313015937805 (s), avg loss so far is 0.03521797060966492
+Epoch 2, Step 125, total used time 115.11543297767639 (s), avg loss so far is 0.035146843641996384
+Epoch 2, val loss is 0.042484868317842484, val mse is 0.019724348559975624.
+Epoch 2, test mse is 0.013681968674063683.
+Starting epoch 3 current lr is 0.001
+Epoch 3, Step 25, total used time 127.60038638114929 (s), avg loss so far is 0.03280145302414894
+Epoch 3, Step 50, total used time 134.37479448318481 (s), avg loss so far is 0.03333394229412079
+Epoch 3, Step 75, total used time 141.09336352348328 (s), avg loss so far is 0.03376896679401398
+Epoch 3, Step 100, total used time 148.3846480846405 (s), avg loss so far is 0.03382572904229164
+Epoch 3, Step 125, total used time 155.3528027534485 (s), avg loss so far is 0.03350648283958435
+Epoch 3, val loss is 0.04038778692483902, val mse is 0.01785638928413391.
+Epoch 3, test mse is 0.012391950935125351.
+Starting epoch 4 current lr is 0.001
+Epoch 4, Step 25, total used time 167.87217569351196 (s), avg loss so far is 0.030975528061389923
+Epoch 4, Step 50, total used time 174.5810525417328 (s), avg loss so far is 0.03183669224381447
+Epoch 4, Step 75, total used time 181.35707330703735 (s), avg loss so far is 0.03171919658780098
+Epoch 4, Step 100, total used time 188.0265715122223 (s), avg loss so far is 0.03202594444155693
+Epoch 4, Step 125, total used time 194.8326780796051 (s), avg loss so far is 0.03166162967681885
+Epoch 4, val loss is 0.03863300383090973, val mse is 0.016641676425933838.
+Epoch 4, test mse is 0.011857481673359871.
+Starting epoch 5 current lr is 0.001
+Epoch 5, Step 25, total used time 207.46414732933044 (s), avg loss so far is 0.030817769467830658
+Epoch 5, Step 50, total used time 214.13902306556702 (s), avg loss so far is 0.03091084398329258
+Epoch 5, Step 75, total used time 220.7508683204651 (s), avg loss so far is 0.030801324173808098
+Epoch 5, Step 100, total used time 227.36808943748474 (s), avg loss so far is 0.030369868502020836
+Epoch 5, Step 125, total used time 234.01562523841858 (s), avg loss so far is 0.02983403578400612
+Epoch 5, val loss is 0.037655338644981384, val mse is 0.015929684042930603.
+Epoch 5, test mse is 0.011200089007616043.
+Starting epoch 6 current lr is 0.001
+Epoch 6, Step 25, total used time 246.29753518104553 (s), avg loss so far is 0.029162438586354256
+Epoch 6, Step 50, total used time 253.3604474067688 (s), avg loss so far is 0.02860465832054615
+Epoch 6, Step 75, total used time 259.96139764785767 (s), avg loss so far is 0.028469165787100792
+Epoch 6, Step 100, total used time 266.5552909374237 (s), avg loss so far is 0.02860879898071289
+Epoch 6, Step 125, total used time 273.215439081192 (s), avg loss so far is 0.02882702276110649
+Epoch 6, val loss is 0.036552898585796356, val mse is 0.015192731283605099.
+Epoch 6, test mse is 0.010602294467389584.
+Starting epoch 7 current lr is 0.001
+Epoch 7, Step 25, total used time 285.44990968704224 (s), avg loss so far is 0.028877103701233864
+Epoch 7, Step 50, total used time 292.0353276729584 (s), avg loss so far is 0.02978125773370266
+Epoch 7, Step 75, total used time 299.04317116737366 (s), avg loss so far is 0.029709236696362495
+Epoch 7, Step 100, total used time 306.6879777908325 (s), avg loss so far is 0.029500992968678474
+Epoch 7, Step 125, total used time 314.01822900772095 (s), avg loss so far is 0.029296686872839928
+Epoch 7, val loss is 0.03616645932197571, val mse is 0.014966679736971855.
+Epoch 7, test mse is 0.010416305623948574.
+Starting epoch 8 current lr is 0.001
+Epoch 8, Step 25, total used time 326.92500376701355 (s), avg loss so far is 0.02880808152258396
+Epoch 8, Step 50, total used time 334.195503950119 (s), avg loss so far is 0.028818797320127487
+Epoch 8, Step 75, total used time 341.40727162361145 (s), avg loss so far is 0.028654450550675392
+Epoch 8, Step 100, total used time 348.7220849990845 (s), avg loss so far is 0.02827993780374527
+Epoch 8, Step 125, total used time 356.0659670829773 (s), avg loss so far is 0.028271781280636787
+Epoch 8, val loss is 0.03573853150010109, val mse is 0.0148134995251894.
+Epoch 8, test mse is 0.010204148478806019.
+Starting epoch 9 current lr is 0.001
+Epoch 9, Step 25, total used time 369.46802496910095 (s), avg loss so far is 0.030125582590699196
+Epoch 9, Step 50, total used time 376.67531847953796 (s), avg loss so far is 0.030051464214920998
+Epoch 9, Step 75, total used time 383.86049222946167 (s), avg loss so far is 0.0297287218272686
+Epoch 9, Step 100, total used time 391.082866191864 (s), avg loss so far is 0.029256295412778854
+Epoch 9, Step 125, total used time 398.2189302444458 (s), avg loss so far is 0.02905900962650776
+Epoch 9, val loss is 0.03523968905210495, val mse is 0.014247175306081772.
+Epoch 9, test mse is 0.00978063978254795.
+Starting epoch 10 current lr is 0.001
+Epoch 10, Step 25, total used time 411.06320667266846 (s), avg loss so far is 0.02840949036180973
+Epoch 10, Step 50, total used time 418.7639536857605 (s), avg loss so far is 0.027932383120059967
+Epoch 10, Step 75, total used time 425.90707635879517 (s), avg loss so far is 0.027552064508199692
+Epoch 10, Step 100, total used time 433.08305764198303 (s), avg loss so far is 0.027530046179890633
+Epoch 10, Step 125, total used time 440.3737449645996 (s), avg loss so far is 0.027494948357343674
+Epoch 10, val loss is 0.03485566005110741, val mse is 0.013973226770758629.
+Epoch 10, test mse is 0.00957452692091465.
+Starting epoch 11 current lr is 0.001
+Epoch 11, Step 25, total used time 453.83615040779114 (s), avg loss so far is 0.02929522469639778
+Epoch 11, Step 50, total used time 461.3750636577606 (s), avg loss so far is 0.028336117044091225
+Epoch 11, Step 75, total used time 469.21825432777405 (s), avg loss so far is 0.027807950973510742
+Epoch 11, Step 100, total used time 476.683762550354 (s), avg loss so far is 0.027685871347784996
+Epoch 11, Step 125, total used time 484.1925687789917 (s), avg loss so far is 0.027322694659233093
+Epoch 11, val loss is 0.03456170856952667, val mse is 0.013954687863588333.
+Epoch 11, test mse is 0.009415348060429096.
+Starting epoch 12 current lr is 0.001
+Epoch 12, Step 25, total used time 497.4758517742157 (s), avg loss so far is 0.02681196667253971
+Epoch 12, Step 50, total used time 504.8719074726105 (s), avg loss so far is 0.02868400327861309
+Epoch 12, Step 75, total used time 511.62712240219116 (s), avg loss so far is 0.027846867218613625
+Epoch 12, Step 100, total used time 518.5558495521545 (s), avg loss so far is 0.027333486825227737
+Epoch 12, Step 125, total used time 525.8103985786438 (s), avg loss so far is 0.027492444962263107
+Epoch 12, val loss is 0.034384001046419144, val mse is 0.01384130958467722.
+Epoch 12, test mse is 0.009201365523040295.
+Starting epoch 13 current lr is 0.001
+Epoch 13, Step 25, total used time 538.4173247814178 (s), avg loss so far is 0.02642572484910488
+Epoch 13, Step 50, total used time 545.394757270813 (s), avg loss so far is 0.026322506368160248
+Epoch 13, Step 75, total used time 552.2751903533936 (s), avg loss so far is 0.026371611282229424
+Epoch 13, Step 100, total used time 559.143720626831 (s), avg loss so far is 0.02622700296342373
+Epoch 13, Step 125, total used time 566.0092220306396 (s), avg loss so far is 0.026271911337971687
+Epoch 13, val loss is 0.034211672842502594, val mse is 0.0138257360085845.
+Epoch 13, test mse is 0.009075990878045559.
+Starting epoch 14 current lr is 0.001
+Epoch 14, Step 25, total used time 578.8681664466858 (s), avg loss so far is 0.027670253068208694
+Epoch 14, Step 50, total used time 585.539174079895 (s), avg loss so far is 0.027688633650541306
+Epoch 14, Step 75, total used time 592.3378689289093 (s), avg loss so far is 0.02712896279990673
+Epoch 14, Step 100, total used time 599.0249683856964 (s), avg loss so far is 0.02715657465159893
+Epoch 14, Step 125, total used time 605.7943015098572 (s), avg loss so far is 0.02665172889828682
+Epoch 14, val loss is 0.034145500510931015, val mse is 0.013810603879392147.
+Epoch 14, test mse is 0.0089365029707551.
+Starting epoch 15 current lr is 0.001
+Epoch 15, Step 25, total used time 618.3969185352325 (s), avg loss so far is 0.02645885944366455
+Epoch 15, Step 50, total used time 625.1251094341278 (s), avg loss so far is 0.026016004383563995
+Epoch 15, Step 75, total used time 632.2224705219269 (s), avg loss so far is 0.025868821889162064
+Epoch 15, Step 100, total used time 638.972642660141 (s), avg loss so far is 0.025663241744041443
+Epoch 15, Step 125, total used time 645.7356660366058 (s), avg loss so far is 0.025639839470386505
+Epoch 15, val loss is 0.033737801015377045, val mse is 0.013518287800252438.
+Epoch 15, test mse is 0.008814431726932526.
+Starting epoch 16 current lr is 0.001
+Epoch 16, Step 25, total used time 658.3216979503632 (s), avg loss so far is 0.027074730023741722
+Epoch 16, Step 50, total used time 665.2715740203857 (s), avg loss so far is 0.025990696623921394
+Epoch 16, Step 75, total used time 672.2131214141846 (s), avg loss so far is 0.026066100224852562
+Epoch 16, Step 100, total used time 679.1576194763184 (s), avg loss so far is 0.026051264256238937
+Epoch 16, Step 125, total used time 686.462286233902 (s), avg loss so far is 0.026091318577528
+Epoch 16, val loss is 0.03373934328556061, val mse is 0.01347225159406662.
+Epoch 16, test mse is 0.008717359974980354.
+Starting epoch 17 current lr is 0.001
+Epoch 17, Step 25, total used time 699.0633578300476 (s), avg loss so far is 0.02714792639017105
+Epoch 17, Step 50, total used time 705.7682256698608 (s), avg loss so far is 0.0262284055352211
+Epoch 17, Step 75, total used time 712.5397295951843 (s), avg loss so far is 0.02640930563211441
+Epoch 17, Step 100, total used time 719.2891671657562 (s), avg loss so far is 0.026001058518886566
+Epoch 17, Step 125, total used time 726.248331785202 (s), avg loss so far is 0.025939585641026497
+Epoch 17, val loss is 0.033693827688694, val mse is 0.013592647388577461.
+Epoch 17, test mse is 0.008871466852724552.
+Starting epoch 18 current lr is 0.001
+Epoch 18, Step 25, total used time 739.2189903259277 (s), avg loss so far is 0.025950975716114044
+Epoch 18, Step 50, total used time 745.929595708847 (s), avg loss so far is 0.025608068332076073
+Epoch 18, Step 75, total used time 752.7121405601501 (s), avg loss so far is 0.025437233969569206
+Epoch 18, Step 100, total used time 759.3461937904358 (s), avg loss so far is 0.025960633531212807
+Epoch 18, Step 125, total used time 765.9324123859406 (s), avg loss so far is 0.025784123688936234
+Epoch 18, val loss is 0.03331954404711723, val mse is 0.013220845721662045.
+Epoch 18, test mse is 0.008726129308342934.
+Starting epoch 19 current lr is 0.001
+Epoch 19, Step 25, total used time 778.173736333847 (s), avg loss so far is 0.025348776951432228
+Epoch 19, Step 50, total used time 784.8178555965424 (s), avg loss so far is 0.025528892874717712
+Epoch 19, Step 75, total used time 791.9037892818451 (s), avg loss so far is 0.02551070973277092
+Epoch 19, Step 100, total used time 798.4733412265778 (s), avg loss so far is 0.02570006065070629
+Epoch 19, Step 125, total used time 805.126195192337 (s), avg loss so far is 0.02564503811299801
+Epoch 19, val loss is 0.03307319059967995, val mse is 0.013212984427809715.
+Epoch 19, test mse is 0.008601851761341095.
+Starting epoch 20 current lr is 0.001
+Epoch 20, Step 25, total used time 817.3664464950562 (s), avg loss so far is 0.026420170441269875
+Epoch 20, Step 50, total used time 824.0048654079437 (s), avg loss so far is 0.02590233087539673
+Epoch 20, Step 75, total used time 830.8998510837555 (s), avg loss so far is 0.025941280648112297
+Epoch 20, Step 100, total used time 837.7253756523132 (s), avg loss so far is 0.02597682550549507
+Epoch 20, Step 125, total used time 844.9382033348083 (s), avg loss so far is 0.025494737550616264
+Epoch 20, val loss is 0.033010855317115784, val mse is 0.013022985309362411.
+Epoch 20, test mse is 0.00840580090880394.
+Starting epoch 21 current lr is 0.001
+Epoch 21, Step 25, total used time 857.278802394867 (s), avg loss so far is 0.027073707431554794
+Epoch 21, Step 50, total used time 864.0614695549011 (s), avg loss so far is 0.02660983055830002
+Epoch 21, Step 75, total used time 870.7840759754181 (s), avg loss so far is 0.026607660576701164
+Epoch 21, Step 100, total used time 877.5173451900482 (s), avg loss so far is 0.026392223313450813
+Epoch 21, Step 125, total used time 884.1020550727844 (s), avg loss so far is 0.025871027261018753
+Epoch 21, val loss is 0.033091429620981216, val mse is 0.013208253309130669.
+Epoch 21, test mse is 0.0084408363327384.
+Starting epoch 22 current lr is 0.001
+Epoch 22, Step 25, total used time 896.7591483592987 (s), avg loss so far is 0.02424970641732216
+Epoch 22, Step 50, total used time 903.4095466136932 (s), avg loss so far is 0.02481071650981903
+Epoch 22, Step 75, total used time 910.0195088386536 (s), avg loss so far is 0.02459952048957348
+Epoch 22, Step 100, total used time 916.7232024669647 (s), avg loss so far is 0.024668477475643158
+Epoch 22, Step 125, total used time 923.6451148986816 (s), avg loss so far is 0.02483254298567772
+Epoch 22, val loss is 0.032778412103652954, val mse is 0.012850259430706501.
+Epoch 22, test mse is 0.00833139568567276.
+Starting epoch 23 current lr is 0.001
+Epoch 23, Step 25, total used time 936.9121522903442 (s), avg loss so far is 0.027155376970767975
+Epoch 23, Step 50, total used time 944.475359916687 (s), avg loss so far is 0.025476152077317238
+Epoch 23, Step 75, total used time 952.5172142982483 (s), avg loss so far is 0.02526937797665596
+Epoch 23, Step 100, total used time 960.0728235244751 (s), avg loss so far is 0.025284603238105774
+Epoch 23, Step 125, total used time 967.6349694728851 (s), avg loss so far is 0.025246916338801384
+Epoch 23, val loss is 0.032569315284490585, val mse is 0.012943879701197147.
+Epoch 23, test mse is 0.008396371267735958.
+Starting epoch 24 current lr is 0.001
+Epoch 24, Step 25, total used time 981.0023770332336 (s), avg loss so far is 0.024344732984900475
+Epoch 24, Step 50, total used time 988.6158981323242 (s), avg loss so far is 0.02543596923351288
+Epoch 24, Step 75, total used time 996.2183971405029 (s), avg loss so far is 0.02489168383181095
+Epoch 24, Step 100, total used time 1004.1431632041931 (s), avg loss so far is 0.024950215592980385
+Epoch 24, Step 125, total used time 1011.677193403244 (s), avg loss so far is 0.02492908202111721
+Epoch 24, val loss is 0.03235463425517082, val mse is 0.012672840617597103.
+Epoch 24, test mse is 0.008239630609750748.
+Starting epoch 25 current lr is 0.001
+Epoch 25, Step 25, total used time 1025.0672557353973 (s), avg loss so far is 0.025434330105781555
+Epoch 25, Step 50, total used time 1032.6531314849854 (s), avg loss so far is 0.024850932881236076
+Epoch 25, Step 75, total used time 1040.2210466861725 (s), avg loss so far is 0.024572251364588737
+Epoch 25, Step 100, total used time 1047.783933877945 (s), avg loss so far is 0.024417979642748833
+Epoch 25, Step 125, total used time 1055.320392370224 (s), avg loss so far is 0.02456921897828579
+Epoch 25, val loss is 0.032555874437093735, val mse is 0.012803660705685616.
+Epoch 25, test mse is 0.008381390944123268.
+Starting epoch 26 current lr is 0.001
+Epoch 26, Step 25, total used time 1069.1833035945892 (s), avg loss so far is 0.02419423498213291
+Epoch 26, Step 50, total used time 1076.7074618339539 (s), avg loss so far is 0.02415955252945423
+Epoch 26, Step 75, total used time 1084.258941411972 (s), avg loss so far is 0.024764740839600563
+Epoch 26, Step 100, total used time 1091.9341449737549 (s), avg loss so far is 0.024636004120111465
+Epoch 26, Step 125, total used time 1099.485361814499 (s), avg loss so far is 0.024836106225848198
+Epoch 26, val loss is 0.03231353312730789, val mse is 0.012686445377767086.
+Epoch 26, test mse is 0.008196675218641758.
+Starting epoch 27 current lr is 0.001
+Epoch 27, Step 25, total used time 1113.2486641407013 (s), avg loss so far is 0.02446349896490574
+Epoch 27, Step 50, total used time 1120.8043432235718 (s), avg loss so far is 0.02462122030556202
+Epoch 27, Step 75, total used time 1128.2719962596893 (s), avg loss so far is 0.025046998634934425
+Epoch 27, Step 100, total used time 1135.4158430099487 (s), avg loss so far is 0.02485230378806591
+Epoch 27, Step 125, total used time 1142.3120727539062 (s), avg loss so far is 0.02505497634410858
+Epoch 27, val loss is 0.03237630054354668, val mse is 0.012709767557680607.
+Epoch 27, test mse is 0.008192671462893486.
+Starting epoch 28 current lr is 0.001
+Epoch 28, Step 25, total used time 1154.8785109519958 (s), avg loss so far is 0.02553052455186844
+Epoch 28, Step 50, total used time 1161.6908280849457 (s), avg loss so far is 0.025184977799654007
+Epoch 28, Step 75, total used time 1168.9135656356812 (s), avg loss so far is 0.025293102487921715
+Epoch 28, Step 100, total used time 1175.7674465179443 (s), avg loss so far is 0.025012781843543053
+Epoch 28, Step 125, total used time 1182.611050605774 (s), avg loss so far is 0.02489704266190529
+Epoch 28, val loss is 0.03199624642729759, val mse is 0.012413863092660904.
+Epoch 28, test mse is 0.008074809797108173.
+Starting epoch 29 current lr is 0.001
+Epoch 29, Step 25, total used time 1195.1755068302155 (s), avg loss so far is 0.02364156022667885
+Epoch 29, Step 50, total used time 1202.046686410904 (s), avg loss so far is 0.024332858622074127
+Epoch 29, Step 75, total used time 1208.9581859111786 (s), avg loss so far is 0.024810807779431343
+Epoch 29, Step 100, total used time 1215.8732271194458 (s), avg loss so far is 0.02446048893034458
+Epoch 29, Step 125, total used time 1223.127768754959 (s), avg loss so far is 0.024537252262234688
+Epoch 29, val loss is 0.03213337063789368, val mse is 0.012414260767400265.
+Epoch 29, test mse is 0.008177836425602436.
+Starting epoch 30 current lr is 0.001
+Epoch 30, Step 25, total used time 1235.574967622757 (s), avg loss so far is 0.0250577162951231
+Epoch 30, Step 50, total used time 1242.4965736865997 (s), avg loss so far is 0.024691348895430565
+Epoch 30, Step 75, total used time 1249.3665585517883 (s), avg loss so far is 0.024355513975024223
+Epoch 30, Step 100, total used time 1256.2227337360382 (s), avg loss so far is 0.02413998544216156
+Epoch 30, Step 125, total used time 1263.0903499126434 (s), avg loss so far is 0.024297824129462242
+Epoch 30, val loss is 0.03226333484053612, val mse is 0.012617661617696285.
+Epoch 30, test mse is 0.008248018100857735.
+Starting epoch 31 current lr is 0.001
+Epoch 31, Step 25, total used time 1275.9770724773407 (s), avg loss so far is 0.023761488497257233
+Epoch 31, Step 50, total used time 1282.8076391220093 (s), avg loss so far is 0.02432970516383648
+Epoch 31, Step 75, total used time 1289.6495959758759 (s), avg loss so far is 0.024558445438742638
+Epoch 31, Step 100, total used time 1296.5934085845947 (s), avg loss so far is 0.02458377368748188
+Epoch 31, Step 125, total used time 1303.4663560390472 (s), avg loss so far is 0.024619927629828453
+Epoch 31, val loss is 0.03193208575248718, val mse is 0.01251972932368517.
+Epoch 31, test mse is 0.008121381513774395.
+Starting epoch 32 current lr is 0.001
+Epoch 32, Step 25, total used time 1316.046117067337 (s), avg loss so far is 0.024332668632268906
+Epoch 32, Step 50, total used time 1322.930805683136 (s), avg loss so far is 0.024241160601377487
+Epoch 32, Step 75, total used time 1330.1676495075226 (s), avg loss so far is 0.024559536948800087
+Epoch 32, Step 100, total used time 1337.0272917747498 (s), avg loss so far is 0.0245662871748209
+Epoch 32, Step 125, total used time 1343.901793718338 (s), avg loss so far is 0.024919426068663597
+Epoch 32, val loss is 0.03163059800863266, val mse is 0.012174508534371853.
+Epoch 32, test mse is 0.007967513054609299.
+Starting epoch 33 current lr is 0.001
+Epoch 33, Step 25, total used time 1356.4663062095642 (s), avg loss so far is 0.024932043626904488
+Epoch 33, Step 50, total used time 1363.3277525901794 (s), avg loss so far is 0.02484961785376072
+Epoch 33, Step 75, total used time 1370.1490869522095 (s), avg loss so far is 0.025128228589892387
+Epoch 33, Step 100, total used time 1376.9593670368195 (s), avg loss so far is 0.025057783350348473
+Epoch 33, Step 125, total used time 1384.2021570205688 (s), avg loss so far is 0.025227976962924004
+Epoch 33, val loss is 0.03172850236296654, val mse is 0.012316873297095299.
+Epoch 33, test mse is 0.007888317108154297.
+Starting epoch 34 current lr is 0.001
+Epoch 34, Step 25, total used time 1396.6433382034302 (s), avg loss so far is 0.02498750388622284
+Epoch 34, Step 50, total used time 1403.4278757572174 (s), avg loss so far is 0.025286147370934486
+Epoch 34, Step 75, total used time 1410.2258474826813 (s), avg loss so far is 0.02444911003112793
+Epoch 34, Step 100, total used time 1417.1052651405334 (s), avg loss so far is 0.024178527295589447
+Epoch 34, Step 125, total used time 1423.7820296287537 (s), avg loss so far is 0.024273177608847618
+Epoch 34, val loss is 0.03185606375336647, val mse is 0.012344945222139359.
+Epoch 34, test mse is 0.00800785981118679.
+Starting epoch 35 current lr is 0.001
+Epoch 35, Step 25, total used time 1436.7458279132843 (s), avg loss so far is 0.023747079074382782
+Epoch 35, Step 50, total used time 1443.5662922859192 (s), avg loss so far is 0.02414759434759617
+Epoch 35, Step 75, total used time 1450.3499295711517 (s), avg loss so far is 0.023891447111964226
+Epoch 35, Step 100, total used time 1457.1768417358398 (s), avg loss so far is 0.02432851307094097
+Epoch 35, Step 125, total used time 1463.9564435482025 (s), avg loss so far is 0.02421983703970909
+Epoch 35, val loss is 0.031606029719114304, val mse is 0.012226736173033714.
+Epoch 35, test mse is 0.007889463566243649.
+Starting epoch 36 current lr is 0.001
+Epoch 36, Step 25, total used time 1476.6410868167877 (s), avg loss so far is 0.025692591443657875
+Epoch 36, Step 50, total used time 1483.5370118618011 (s), avg loss so far is 0.024571359157562256
+Epoch 36, Step 75, total used time 1490.6949343681335 (s), avg loss so far is 0.02410489320755005
+Epoch 36, Step 100, total used time 1497.5330078601837 (s), avg loss so far is 0.024438858032226562
+Epoch 36, Step 125, total used time 1504.3730919361115 (s), avg loss so far is 0.024366402998566628
+Epoch 36, val loss is 0.03206690400838852, val mse is 0.012676725164055824.
+Epoch 36, test mse is 0.007837804034352303.
+Starting epoch 37 current lr is 0.001
+Epoch 37, Step 25, total used time 1516.8813700675964 (s), avg loss so far is 0.0234226081520319
+Epoch 37, Step 50, total used time 1523.733083486557 (s), avg loss so far is 0.024027733132243156
+Epoch 37, Step 75, total used time 1530.564970254898 (s), avg loss so far is 0.024164969101548195
+Epoch 37, Step 100, total used time 1537.4755775928497 (s), avg loss so far is 0.02390214614570141
+Epoch 37, Step 125, total used time 1544.8240644931793 (s), avg loss so far is 0.023853283375501633
+Epoch 37, val loss is 0.031399041414260864, val mse is 0.012094803154468536.
+Epoch 37, test mse is 0.007803850807249546.
+Starting epoch 38 current lr is 0.001
+Epoch 38, Step 25, total used time 1557.5753886699677 (s), avg loss so far is 0.02506309747695923
+Epoch 38, Step 50, total used time 1564.4955360889435 (s), avg loss so far is 0.024253809824585915
+Epoch 38, Step 75, total used time 1571.3585600852966 (s), avg loss so far is 0.024170298129320145
+Epoch 38, Step 100, total used time 1578.2274906635284 (s), avg loss so far is 0.02380784973502159
+Epoch 38, Step 125, total used time 1585.0878596305847 (s), avg loss so far is 0.023948349058628082
+Epoch 38, val loss is 0.031617142260074615, val mse is 0.012162652797996998.
+Epoch 38, test mse is 0.007801915518939495.
+Starting epoch 39 current lr is 0.001
+Epoch 39, Step 25, total used time 1598.348433971405 (s), avg loss so far is 0.024432290345430374
+Epoch 39, Step 50, total used time 1605.2388651371002 (s), avg loss so far is 0.023714782670140266
+Epoch 39, Step 75, total used time 1611.9566922187805 (s), avg loss so far is 0.02383657917380333
+Epoch 39, Step 100, total used time 1618.865697145462 (s), avg loss so far is 0.02410515770316124
+Epoch 39, Step 125, total used time 1625.664321422577 (s), avg loss so far is 0.024323755875229836
+Epoch 39, val loss is 0.031291745603084564, val mse is 0.011956394650042057.
+Epoch 39, test mse is 0.007757003419101238.
+Starting epoch 40 current lr is 0.001
+Epoch 40, Step 25, total used time 1638.2002143859863 (s), avg loss so far is 0.025366252288222313
+Epoch 40, Step 50, total used time 1645.243330001831 (s), avg loss so far is 0.0250636488199234
+Epoch 40, Step 75, total used time 1652.4903271198273 (s), avg loss so far is 0.024516252800822258
+Epoch 40, Step 100, total used time 1659.3477206230164 (s), avg loss so far is 0.024449236690998077
+Epoch 40, Step 125, total used time 1666.2000286579132 (s), avg loss so far is 0.024241598322987556
+Epoch 40, val loss is 0.03146352618932724, val mse is 0.012066454626619816.
+Epoch 40, test mse is 0.007654157001525164.
+Starting epoch 41 current lr is 0.001
+Epoch 41, Step 25, total used time 1678.8205950260162 (s), avg loss so far is 0.024621520191431046
+Epoch 41, Step 50, total used time 1685.6695840358734 (s), avg loss so far is 0.023935046046972275
+Epoch 41, Step 75, total used time 1692.5037200450897 (s), avg loss so far is 0.024395469576120377
+Epoch 41, Step 100, total used time 1699.3526389598846 (s), avg loss so far is 0.024316828697919846
+Epoch 41, Step 125, total used time 1706.2351443767548 (s), avg loss so far is 0.024296917021274567
+Epoch 41, val loss is 0.03143441304564476, val mse is 0.012237999588251114.
+Epoch 41, test mse is 0.007824215106666088.
+Starting epoch 42 current lr is 0.001
+Epoch 42, Step 25, total used time 1719.2712111473083 (s), avg loss so far is 0.023473892360925674
+Epoch 42, Step 50, total used time 1725.9742684364319 (s), avg loss so far is 0.023070914670825005
+Epoch 42, Step 75, total used time 1732.9079475402832 (s), avg loss so far is 0.02303997240960598
+Epoch 42, Step 100, total used time 1740.2192208766937 (s), avg loss so far is 0.023232363164424896
+Epoch 42, Step 125, total used time 1747.626373052597 (s), avg loss so far is 0.023110978305339813
+Epoch 42, val loss is 0.031167859211564064, val mse is 0.011833266355097294.
+Epoch 42, test mse is 0.007677421905100346.
+Starting epoch 43 current lr is 0.001
+Epoch 43, Step 25, total used time 1761.024263381958 (s), avg loss so far is 0.0244460366666317
+Epoch 43, Step 50, total used time 1768.88765335083 (s), avg loss so far is 0.023966005071997643
+Epoch 43, Step 75, total used time 1776.4248368740082 (s), avg loss so far is 0.02320927567780018
+Epoch 43, Step 100, total used time 1783.9945113658905 (s), avg loss so far is 0.023216037079691887
+Epoch 43, Step 125, total used time 1791.5719935894012 (s), avg loss so far is 0.023145409300923347
+Epoch 43, val loss is 0.03115008771419525, val mse is 0.01204040925949812.
+Epoch 43, test mse is 0.007591767702251673.
+Starting epoch 44 current lr is 0.001
+Epoch 44, Step 25, total used time 1804.8584690093994 (s), avg loss so far is 0.02311618998646736
+Epoch 44, Step 50, total used time 1812.428192615509 (s), avg loss so far is 0.02337302640080452
+Epoch 44, Step 75, total used time 1820.2508494853973 (s), avg loss so far is 0.023606076836586
+Epoch 44, Step 100, total used time 1827.425335407257 (s), avg loss so far is 0.023650892078876495
+Epoch 44, Step 125, total used time 1834.6509833335876 (s), avg loss so far is 0.02371908538043499
+Epoch 44, val loss is 0.031133590266108513, val mse is 0.011923407204449177.
+Epoch 44, test mse is 0.007708059158176184.
+Starting epoch 45 current lr is 0.001
+Epoch 45, Step 25, total used time 1847.4832835197449 (s), avg loss so far is 0.024716554209589958
+Epoch 45, Step 50, total used time 1854.630981206894 (s), avg loss so far is 0.024324027821421623
+Epoch 45, Step 75, total used time 1861.7295031547546 (s), avg loss so far is 0.024338293820619583
+Epoch 45, Step 100, total used time 1868.9837415218353 (s), avg loss so far is 0.024170290678739548
+Epoch 45, Step 125, total used time 1876.6411528587341 (s), avg loss so far is 0.023918919265270233
+Epoch 45, val loss is 0.03119404800236225, val mse is 0.012044120579957962.
+Epoch 45, test mse is 0.007609137799590826.
+Starting epoch 46 current lr is 0.001
+Epoch 46, Step 25, total used time 1889.5830376148224 (s), avg loss so far is 0.02378220483660698
+Epoch 46, Step 50, total used time 1896.8978717327118 (s), avg loss so far is 0.02386573515832424
+Epoch 46, Step 75, total used time 1904.151209115982 (s), avg loss so far is 0.023847093805670738
+Epoch 46, Step 100, total used time 1911.4834213256836 (s), avg loss so far is 0.023830074816942215
+Epoch 46, Step 125, total used time 1918.6944994926453 (s), avg loss so far is 0.02371654100716114
+Epoch 46, val loss is 0.03145039454102516, val mse is 0.012175165116786957.
+Epoch 46, test mse is 0.007684013806283474.
+Starting epoch 47 current lr is 0.001
+Epoch 47, Step 25, total used time 1932.2188291549683 (s), avg loss so far is 0.022469522431492805
+Epoch 47, Step 50, total used time 1939.4661321640015 (s), avg loss so far is 0.022608527913689613
+Epoch 47, Step 75, total used time 1946.7701077461243 (s), avg loss so far is 0.02325942926108837
+Epoch 47, Step 100, total used time 1954.1875436306 (s), avg loss so far is 0.023472873494029045
+Epoch 47, Step 125, total used time 1961.4174706935883 (s), avg loss so far is 0.023403195664286613
+Epoch 47, val loss is 0.0311988964676857, val mse is 0.012076730839908123.
+Epoch 47, test mse is 0.007582478225231171.
+Starting epoch 48 current lr is 0.001
+Epoch 48, Step 25, total used time 1973.7171380519867 (s), avg loss so far is 0.023302339017391205
+Epoch 48, Step 50, total used time 1980.287392616272 (s), avg loss so far is 0.023444201797246933
+Epoch 48, Step 75, total used time 1987.2479619979858 (s), avg loss so far is 0.023999048396945
+Epoch 48, Step 100, total used time 1993.8390445709229 (s), avg loss so far is 0.024116523563861847
+Epoch 48, Step 125, total used time 2000.6897194385529 (s), avg loss so far is 0.024178776890039444
+Epoch 48, val loss is 0.03124951757490635, val mse is 0.012060796841979027.
+Epoch 48, test mse is 0.00778008159250021.
+Starting epoch 49 current lr is 0.001
+Epoch 49, Step 25, total used time 2013.387544631958 (s), avg loss so far is 0.02474522404372692
+Epoch 49, Step 50, total used time 2020.4060633182526 (s), avg loss so far is 0.02400159277021885
+Epoch 49, Step 75, total used time 2027.4383058547974 (s), avg loss so far is 0.024219462648034096
+Epoch 49, Step 100, total used time 2034.4892406463623 (s), avg loss so far is 0.024317579343914986
+Epoch 49, Step 125, total used time 2041.7163572311401 (s), avg loss so far is 0.024077430367469788
+Epoch 49, val loss is 0.03116578422486782, val mse is 0.012042555958032608.
+Epoch 49, test mse is 0.007542693987488747.
+Starting epoch 50 current lr is 0.001
+Epoch 50, Step 25, total used time 2054.161924600601 (s), avg loss so far is 0.023745978251099586
+Epoch 50, Step 50, total used time 2060.947681427002 (s), avg loss so far is 0.02388903871178627
+Epoch 50, Step 75, total used time 2067.735841035843 (s), avg loss so far is 0.023618075996637344
+Epoch 50, Step 100, total used time 2074.541662454605 (s), avg loss so far is 0.023350965231657028
+Epoch 50, Step 125, total used time 2081.404576063156 (s), avg loss so far is 0.02350691705942154
+Epoch 50, val loss is 0.031032437458634377, val mse is 0.011967083439230919.
+Epoch 50, test mse is 0.007490936666727066.
+Starting epoch 51 current lr is 0.001
+Epoch 51, Step 25, total used time 2094.216336965561 (s), avg loss so far is 0.023168016225099564
+Epoch 51, Step 50, total used time 2101.0943772792816 (s), avg loss so far is 0.022817077115178108
+Epoch 51, Step 75, total used time 2107.957780599594 (s), avg loss so far is 0.02279958315193653
+Epoch 51, Step 100, total used time 2114.7945218086243 (s), avg loss so far is 0.023128503933548927
+Epoch 51, Step 125, total used time 2121.632793188095 (s), avg loss so far is 0.023243965581059456
+Epoch 51, val loss is 0.030939357355237007, val mse is 0.011863702908158302.
+Epoch 51, test mse is 0.007551468443125486.
+Starting epoch 52 current lr is 0.001
+Epoch 52, Step 25, total used time 2134.32749915123 (s), avg loss so far is 0.02325364574790001
+Epoch 52, Step 50, total used time 2141.269891023636 (s), avg loss so far is 0.02300471067428589
+Epoch 52, Step 75, total used time 2148.52655172348 (s), avg loss so far is 0.023175794631242752
+Epoch 52, Step 100, total used time 2155.4088094234467 (s), avg loss so far is 0.023197351023554802
+Epoch 52, Step 125, total used time 2162.2056016921997 (s), avg loss so far is 0.022967705503106117
+Epoch 52, val loss is 0.03122333064675331, val mse is 0.011927948333323002.
+Epoch 52, test mse is 0.007503990083932877.
+Starting epoch 53 current lr is 0.001
+Epoch 53, Step 25, total used time 2174.674822807312 (s), avg loss so far is 0.02381710335612297
+Epoch 53, Step 50, total used time 2181.430827140808 (s), avg loss so far is 0.02452046610414982
+Epoch 53, Step 75, total used time 2188.242860555649 (s), avg loss so far is 0.02402137964963913
+Epoch 53, Step 100, total used time 2195.0731132030487 (s), avg loss so far is 0.023731684312224388
+Epoch 53, Step 125, total used time 2202.2753484249115 (s), avg loss so far is 0.023837847635149956
+Epoch 53, val loss is 0.031162578612565994, val mse is 0.012036248110234737.
+Epoch 53, test mse is 0.00759521871805191.
+Starting epoch 54 current lr is 0.001
+Epoch 54, Step 25, total used time 2214.831605911255 (s), avg loss so far is 0.024470442906022072
+Epoch 54, Step 50, total used time 2221.6729826927185 (s), avg loss so far is 0.024077437818050385
+Epoch 54, Step 75, total used time 2228.452427148819 (s), avg loss so far is 0.02388421818614006
+Epoch 54, Step 100, total used time 2235.2283992767334 (s), avg loss so far is 0.023883093148469925
+Epoch 54, Step 125, total used time 2241.980311393738 (s), avg loss so far is 0.023761659860610962
+Epoch 54, val loss is 0.030968856066465378, val mse is 0.011939942836761475.
+Epoch 54, test mse is 0.007534330245107412.
+Starting epoch 55 current lr is 0.001
+Epoch 55, Step 25, total used time 2254.494304418564 (s), avg loss so far is 0.022989539429545403
+Epoch 55, Step 50, total used time 2261.703200817108 (s), avg loss so far is 0.022950924932956696
+Epoch 55, Step 75, total used time 2268.5113401412964 (s), avg loss so far is 0.0229813065379858
+Epoch 55, Step 100, total used time 2275.3753368854523 (s), avg loss so far is 0.02325398474931717
+Epoch 55, Step 125, total used time 2282.2462799549103 (s), avg loss so far is 0.023192789405584335
+Epoch 55, val loss is 0.030832383781671524, val mse is 0.011929170228540897.
+Epoch 55, test mse is 0.007505603600293398.
+Starting epoch 56 current lr is 0.001
+Epoch 56, Step 25, total used time 2294.8035435676575 (s), avg loss so far is 0.022077396512031555
+Epoch 56, Step 50, total used time 2301.5779452323914 (s), avg loss so far is 0.023006999865174294
+Epoch 56, Step 75, total used time 2308.338541984558 (s), avg loss so far is 0.02335953153669834
+Epoch 56, Step 100, total used time 2315.4977202415466 (s), avg loss so far is 0.023217517882585526
+Epoch 56, Step 125, total used time 2322.1903460025787 (s), avg loss so far is 0.023381292819976807
+Epoch 56, val loss is 0.030995575711131096, val mse is 0.011956192553043365.
+Epoch 56, test mse is 0.007575152441859245.
+Starting epoch 57 current lr is 0.001
+Epoch 57, Step 25, total used time 2334.7311120033264 (s), avg loss so far is 0.022514669224619865
+Epoch 57, Step 50, total used time 2341.601226091385 (s), avg loss so far is 0.022708842530846596
+Epoch 57, Step 75, total used time 2348.410276412964 (s), avg loss so far is 0.023131072521209717
+Epoch 57, Step 100, total used time 2355.107709169388 (s), avg loss so far is 0.023401079699397087
+Epoch 57, Step 125, total used time 2361.755628824234 (s), avg loss so far is 0.023356491699814796
+Epoch 57, val loss is 0.030912818387150764, val mse is 0.011813657358288765.
+Epoch 57, test mse is 0.007521269377321005.
+Starting epoch 58 current lr is 0.001
+Epoch 58, Step 25, total used time 2374.4638113975525 (s), avg loss so far is 0.022908320650458336
+Epoch 58, Step 50, total used time 2381.1550917625427 (s), avg loss so far is 0.023753659799695015
+Epoch 58, Step 75, total used time 2387.8722534179688 (s), avg loss so far is 0.02302117832005024
+Epoch 58, Step 100, total used time 2394.546398639679 (s), avg loss so far is 0.022933967411518097
+Epoch 58, Step 125, total used time 2401.245219230652 (s), avg loss so far is 0.023042326793074608
+Epoch 58, val loss is 0.030972035601735115, val mse is 0.012136794626712799.
+Epoch 58, test mse is 0.007452376186847687.
+Starting epoch 59 current lr is 0.001
+Epoch 59, Step 25, total used time 2413.625394821167 (s), avg loss so far is 0.02279871515929699
+Epoch 59, Step 50, total used time 2420.298450231552 (s), avg loss so far is 0.022966237738728523
+Epoch 59, Step 75, total used time 2427.30761384964 (s), avg loss so far is 0.02306445501744747
+Epoch 59, Step 100, total used time 2434.003054857254 (s), avg loss so far is 0.02320374920964241
+Epoch 59, Step 125, total used time 2440.693544626236 (s), avg loss so far is 0.023336289450526237
+Epoch 59, val loss is 0.030826948583126068, val mse is 0.011876835487782955.
+Epoch 59, test mse is 0.007416996639221907.
+Starting epoch 60 current lr is 0.001
+Epoch 60, Step 25, total used time 2453.105877161026 (s), avg loss so far is 0.021986380219459534
+Epoch 60, Step 50, total used time 2459.813306570053 (s), avg loss so far is 0.02348414435982704
+Epoch 60, Step 75, total used time 2466.430608510971 (s), avg loss so far is 0.022946342825889587
+Epoch 60, Step 100, total used time 2473.1076576709747 (s), avg loss so far is 0.022944416850805283
+Epoch 60, Step 125, total used time 2480.4886984825134 (s), avg loss so far is 0.02311159297823906
+Epoch 60, val loss is 0.031102163717150688, val mse is 0.01213993038982153.
+Epoch 60, test mse is 0.00763465091586113.
+Starting epoch 61 current lr is 0.001
+Epoch 61, Step 25, total used time 2493.0370886325836 (s), avg loss so far is 0.023671064525842667
+Epoch 61, Step 50, total used time 2499.8089022636414 (s), avg loss so far is 0.023763947188854218
+Epoch 61, Step 75, total used time 2506.7462356090546 (s), avg loss so far is 0.023050665855407715
+Epoch 61, Step 100, total used time 2513.7085947990417 (s), avg loss so far is 0.02308018133044243
+Epoch 61, Step 125, total used time 2520.6487743854523 (s), avg loss so far is 0.02306623011827469
+Epoch 61, val loss is 0.030955392867326736, val mse is 0.011845482513308525.
+Epoch 61, test mse is 0.007380976341664791.
+Starting epoch 62 current lr is 0.001
+Epoch 62, Step 25, total used time 2533.6942658424377 (s), avg loss so far is 0.02361789532005787
+Epoch 62, Step 50, total used time 2540.6305887699127 (s), avg loss so far is 0.022946488112211227
+Epoch 62, Step 75, total used time 2547.8745517730713 (s), avg loss so far is 0.023612162098288536
+Epoch 62, Step 100, total used time 2555.428788661957 (s), avg loss so far is 0.02333381585776806
+Epoch 62, Step 125, total used time 2563.0459485054016 (s), avg loss so far is 0.023155275732278824
+Epoch 62, val loss is 0.030769934877753258, val mse is 0.011939998716115952.
+Epoch 62, test mse is 0.007420727051794529.
+Starting epoch 63 current lr is 0.001
+Epoch 63, Step 25, total used time 2576.4273517131805 (s), avg loss so far is 0.023471105843782425
+Epoch 63, Step 50, total used time 2584.122050046921 (s), avg loss so far is 0.02304353192448616
+Epoch 63, Step 75, total used time 2592.050493955612 (s), avg loss so far is 0.023476073518395424
+Epoch 63, Step 100, total used time 2599.4990446567535 (s), avg loss so far is 0.02360275201499462
+Epoch 63, Step 125, total used time 2606.916284561157 (s), avg loss so far is 0.02379828505218029
+Epoch 63, val loss is 0.030660277232527733, val mse is 0.011873673647642136.
+Epoch 63, test mse is 0.007402719464153051.
+Starting epoch 64 current lr is 0.001
+Epoch 64, Step 25, total used time 2620.030744075775 (s), avg loss so far is 0.022289767861366272
+Epoch 64, Step 50, total used time 2627.270065307617 (s), avg loss so far is 0.022731803357601166
+Epoch 64, Step 75, total used time 2634.6578109264374 (s), avg loss so far is 0.022774459794163704
+Epoch 64, Step 100, total used time 2642.5630073547363 (s), avg loss so far is 0.022921176627278328
+Epoch 64, Step 125, total used time 2649.9077224731445 (s), avg loss so far is 0.022709736600518227
+Epoch 64, val loss is 0.030636921525001526, val mse is 0.011785715818405151.
+Epoch 64, test mse is 0.00745261600241065.
+Starting epoch 65 current lr is 0.001
+Epoch 65, Step 25, total used time 2663.0276494026184 (s), avg loss so far is 0.023279523476958275
+Epoch 65, Step 50, total used time 2670.438480615616 (s), avg loss so far is 0.023042507469654083
+Epoch 65, Step 75, total used time 2677.968985557556 (s), avg loss so far is 0.02319280058145523
+Epoch 65, Step 100, total used time 2685.497195482254 (s), avg loss so far is 0.022748418152332306
+Epoch 65, Step 125, total used time 2692.8660776615143 (s), avg loss so far is 0.022866141051054
+Epoch 65, val loss is 0.03076215088367462, val mse is 0.011815288104116917.
+Epoch 65, test mse is 0.007414097897708416.
+Starting epoch 66 current lr is 0.001
+Epoch 66, Step 25, total used time 2706.4712266921997 (s), avg loss so far is 0.0233058612793684
+Epoch 66, Step 50, total used time 2713.853485107422 (s), avg loss so far is 0.02249756269156933
+Epoch 66, Step 75, total used time 2721.2585594654083 (s), avg loss so far is 0.022879919037222862
+Epoch 66, Step 100, total used time 2728.7163219451904 (s), avg loss so far is 0.02241675928235054
+Epoch 66, Step 125, total used time 2736.167511701584 (s), avg loss so far is 0.022539379075169563
+Epoch 66, val loss is 0.03102760575711727, val mse is 0.012045902200043201.
+Epoch 66, test mse is 0.007461920380592346.
+Starting epoch 67 current lr is 0.001
+Epoch 67, Step 25, total used time 2749.20094871521 (s), avg loss so far is 0.022557172924280167
+Epoch 67, Step 50, total used time 2756.893389940262 (s), avg loss so far is 0.022429339587688446
+Epoch 67, Step 75, total used time 2764.172782421112 (s), avg loss so far is 0.022693293169140816
+Epoch 67, Step 100, total used time 2770.9521431922913 (s), avg loss so far is 0.022892799228429794
+Epoch 67, Step 125, total used time 2777.7668573856354 (s), avg loss so far is 0.023361194878816605
+Epoch 67, val loss is 0.030781926587224007, val mse is 0.011714241467416286.
+Epoch 67, test mse is 0.007346105296164751.
+Starting epoch 68 current lr is 0.001
+Epoch 68, Step 25, total used time 2790.2096087932587 (s), avg loss so far is 0.022874033078551292
+Epoch 68, Step 50, total used time 2797.06507229805 (s), avg loss so far is 0.0222319383174181
+Epoch 68, Step 75, total used time 2803.8384726047516 (s), avg loss so far is 0.022527292370796204
+Epoch 68, Step 100, total used time 2810.8895812034607 (s), avg loss so far is 0.022637318819761276
+Epoch 68, Step 125, total used time 2817.6809282302856 (s), avg loss so far is 0.022481337189674377
+Epoch 68, val loss is 0.030438965186476707, val mse is 0.011576534248888493.
+Epoch 68, test mse is 0.007290722336620092.
+Starting epoch 69 current lr is 0.001
+Epoch 69, Step 25, total used time 2830.1725165843964 (s), avg loss so far is 0.02231195755302906
+Epoch 69, Step 50, total used time 2837.015048980713 (s), avg loss so far is 0.021944012492895126
+Epoch 69, Step 75, total used time 2843.783580303192 (s), avg loss so far is 0.02209078148007393
+Epoch 69, Step 100, total used time 2850.5659487247467 (s), avg loss so far is 0.022356588393449783
+Epoch 69, Step 125, total used time 2857.4559049606323 (s), avg loss so far is 0.022491956129670143
+Epoch 69, val loss is 0.03057037852704525, val mse is 0.01177956722676754.
+Epoch 69, test mse is 0.007328609935939312.
+Starting epoch 70 current lr is 0.001
+Epoch 70, Step 25, total used time 2870.328255176544 (s), avg loss so far is 0.02149284817278385
+Epoch 70, Step 50, total used time 2877.1457953453064 (s), avg loss so far is 0.022036563605070114
+Epoch 70, Step 75, total used time 2883.924585580826 (s), avg loss so far is 0.022327227517962456
+Epoch 70, Step 100, total used time 2890.693900346756 (s), avg loss so far is 0.02272467128932476
+Epoch 70, Step 125, total used time 2897.4069168567657 (s), avg loss so far is 0.02266562357544899
+Epoch 70, val loss is 0.03057738021016121, val mse is 0.01160480733960867.
+Epoch 70, test mse is 0.007255280390381813.
+Starting epoch 71 current lr is 0.001
+Epoch 71, Step 25, total used time 2909.8184340000153 (s), avg loss so far is 0.021980514749884605
+Epoch 71, Step 50, total used time 2916.9626014232635 (s), avg loss so far is 0.022125739604234695
+Epoch 71, Step 75, total used time 2923.651104450226 (s), avg loss so far is 0.021827595308423042
+Epoch 71, Step 100, total used time 2930.400563955307 (s), avg loss so far is 0.022259430959820747
+Epoch 71, Step 125, total used time 2937.203400850296 (s), avg loss so far is 0.022584114223718643
+Epoch 71, val loss is 0.03059779480099678, val mse is 0.011754035949707031.
+Epoch 71, test mse is 0.007396629545837641.
+Starting epoch 72 current lr is 0.001
+Epoch 72, Step 25, total used time 2949.797090291977 (s), avg loss so far is 0.02487674541771412
+Epoch 72, Step 50, total used time 2956.636032104492 (s), avg loss so far is 0.023916874080896378
+Epoch 72, Step 75, total used time 2963.4194962978363 (s), avg loss so far is 0.023493539541959763
+Epoch 72, Step 100, total used time 2970.650148630142 (s), avg loss so far is 0.02323663793504238
+Epoch 72, Step 125, total used time 2977.5782079696655 (s), avg loss so far is 0.023040998727083206
+Epoch 72, val loss is 0.030332261696457863, val mse is 0.011553889140486717.
+Epoch 72, test mse is 0.007253858260810375.
+Starting epoch 73 current lr is 0.001
+Epoch 73, Step 25, total used time 2990.071300983429 (s), avg loss so far is 0.024013401940464973
+Epoch 73, Step 50, total used time 2996.8658912181854 (s), avg loss so far is 0.02396400459110737
+Epoch 73, Step 75, total used time 3003.652486562729 (s), avg loss so far is 0.02376924268901348
+Epoch 73, Step 100, total used time 3010.433439731598 (s), avg loss so far is 0.02357926219701767
+Epoch 73, Step 125, total used time 3017.232459783554 (s), avg loss so far is 0.02356608211994171
+Epoch 73, val loss is 0.030705556273460388, val mse is 0.011862598359584808.
+Epoch 73, test mse is 0.00731550483033061.
+Starting epoch 74 current lr is 0.001
+Epoch 74, Step 25, total used time 3030.081047773361 (s), avg loss so far is 0.024036802351474762
+Epoch 74, Step 50, total used time 3036.9259293079376 (s), avg loss so far is 0.023303749039769173
+Epoch 74, Step 75, total used time 3043.821548461914 (s), avg loss so far is 0.02315109223127365
+Epoch 74, Step 100, total used time 3050.6179389953613 (s), avg loss so far is 0.023074518889188766
+Epoch 74, Step 125, total used time 3057.417494535446 (s), avg loss so far is 0.023209573701024055
+Epoch 74, val loss is 0.03063732571899891, val mse is 0.011753851547837257.
+Epoch 74, test mse is 0.007211292628198862.
+Starting epoch 75 current lr is 0.0001
+Epoch 75, Step 25, total used time 3069.9619278907776 (s), avg loss so far is 0.023102805018424988
+Epoch 75, Step 50, total used time 3077.2123465538025 (s), avg loss so far is 0.021948106586933136
+Epoch 75, Step 75, total used time 3084.0496125221252 (s), avg loss so far is 0.02212759107351303
+Epoch 75, Step 100, total used time 3090.89280128479 (s), avg loss so far is 0.021979715675115585
+Epoch 75, Step 125, total used time 3097.810776948929 (s), avg loss so far is 0.021946236491203308
+Epoch 75, val loss is 0.030074475333094597, val mse is 0.011440800502896309.
+Epoch 75, test mse is 0.0071149831637740135.
+Starting epoch 76 current lr is 0.0001
+Epoch 76, Step 25, total used time 3110.379737138748 (s), avg loss so far is 0.02394861727952957
+Epoch 76, Step 50, total used time 3117.329674720764 (s), avg loss so far is 0.02359885536134243
+Epoch 76, Step 75, total used time 3124.309266090393 (s), avg loss so far is 0.023343011736869812
+Epoch 76, Step 100, total used time 3131.529986858368 (s), avg loss so far is 0.02284581959247589
+Epoch 76, Step 125, total used time 3138.44708776474 (s), avg loss so far is 0.022701868787407875
+Epoch 76, val loss is 0.030200297012925148, val mse is 0.01157035306096077.
+Epoch 76, test mse is 0.007089517544955015.
+Starting epoch 77 current lr is 0.0001
+Epoch 77, Step 25, total used time 3151.108512401581 (s), avg loss so far is 0.022182462736964226
+Epoch 77, Step 50, total used time 3158.0757265090942 (s), avg loss so far is 0.021616851910948753
+Epoch 77, Step 75, total used time 3164.9804196357727 (s), avg loss so far is 0.02212737314403057
+Epoch 77, Step 100, total used time 3171.8204414844513 (s), avg loss so far is 0.022218042984604836
+Epoch 77, Step 125, total used time 3178.7384984493256 (s), avg loss so far is 0.02227460965514183
+Epoch 77, val loss is 0.03015327639877796, val mse is 0.011517070233821869.
+Epoch 77, test mse is 0.00707123801112175.
+Starting epoch 78 current lr is 0.0001
+Epoch 78, Step 25, total used time 3191.7836327552795 (s), avg loss so far is 0.021986164152622223
+Epoch 78, Step 50, total used time 3198.637770652771 (s), avg loss so far is 0.021795570850372314
+Epoch 78, Step 75, total used time 3205.516227722168 (s), avg loss so far is 0.022335154935717583
+Epoch 78, Step 100, total used time 3212.412330389023 (s), avg loss so far is 0.022242555394768715
+Epoch 78, Step 125, total used time 3219.3356037139893 (s), avg loss so far is 0.022406870499253273
+Epoch 78, val loss is 0.03006351925432682, val mse is 0.011456333100795746.
+Epoch 78, test mse is 0.007073232904076576.
+Starting epoch 79 current lr is 0.0001
+Epoch 79, Step 25, total used time 3231.861494541168 (s), avg loss so far is 0.02290615253150463
+Epoch 79, Step 50, total used time 3239.0918254852295 (s), avg loss so far is 0.023252373561263084
+Epoch 79, Step 75, total used time 3245.9030995368958 (s), avg loss so far is 0.022819289937615395
+Epoch 79, Step 100, total used time 3252.6774818897247 (s), avg loss so far is 0.022689903154969215
+Epoch 79, Step 125, total used time 3259.531880378723 (s), avg loss so far is 0.022369135171175003
+Epoch 79, val loss is 0.030081283301115036, val mse is 0.011474882252514362.
+Epoch 79, test mse is 0.007068648003041744.
+Starting epoch 80 current lr is 0.0001
+Epoch 80, Step 25, total used time 3272.025027036667 (s), avg loss so far is 0.021633317694067955
+Epoch 80, Step 50, total used time 3278.99924659729 (s), avg loss so far is 0.021685827523469925
+Epoch 80, Step 75, total used time 3285.901509284973 (s), avg loss so far is 0.02151915803551674
+Epoch 80, Step 100, total used time 3293.470513343811 (s), avg loss so far is 0.022149410098791122
+Epoch 80, Step 125, total used time 3300.1371388435364 (s), avg loss so far is 0.02205531671643257
+Epoch 80, val loss is 0.030119122937321663, val mse is 0.011509545147418976.
+Epoch 80, test mse is 0.007047896273434162.
+Starting epoch 81 current lr is 0.0001
+Epoch 81, Step 25, total used time 3312.5392842292786 (s), avg loss so far is 0.021756624802947044
+Epoch 81, Step 50, total used time 3319.2147607803345 (s), avg loss so far is 0.02192820981144905
+Epoch 81, Step 75, total used time 3325.960044145584 (s), avg loss so far is 0.022125573828816414
+Epoch 81, Step 100, total used time 3332.8282096385956 (s), avg loss so far is 0.022514095529913902
+Epoch 81, Step 125, total used time 3339.629871368408 (s), avg loss so far is 0.02252119407057762
+Epoch 81, val loss is 0.03007020428776741, val mse is 0.011480553075671196.
+Epoch 81, test mse is 0.007052611093968153.
+Starting epoch 82 current lr is 0.0001
+Epoch 82, Step 25, total used time 3352.753287792206 (s), avg loss so far is 0.022181624546647072
+Epoch 82, Step 50, total used time 3359.6867554187775 (s), avg loss so far is 0.021676747128367424
+Epoch 82, Step 75, total used time 3366.6689705848694 (s), avg loss so far is 0.022304272279143333
+Epoch 82, Step 100, total used time 3374.028979063034 (s), avg loss so far is 0.02247362583875656
+Epoch 82, Step 125, total used time 3381.6441781520844 (s), avg loss so far is 0.022497858852148056
+Epoch 82, val loss is 0.030025875195860863, val mse is 0.011438560672104359.
+Epoch 82, test mse is 0.007029116619378328.
+Starting epoch 83 current lr is 0.0001
+Epoch 83, Step 25, total used time 3395.062648296356 (s), avg loss so far is 0.022670285776257515
+Epoch 83, Step 50, total used time 3403.0718586444855 (s), avg loss so far is 0.02297809347510338
+Epoch 83, Step 75, total used time 3410.6501359939575 (s), avg loss so far is 0.022508179768919945
+Epoch 83, Step 100, total used time 3418.2734208106995 (s), avg loss so far is 0.022587884217500687
+Epoch 83, Step 125, total used time 3425.865207672119 (s), avg loss so far is 0.02260349504649639
+Epoch 83, val loss is 0.029995383694767952, val mse is 0.011386844329535961.
+Epoch 83, test mse is 0.006996132433414459.
+Starting epoch 84 current lr is 0.0001
+Epoch 84, Step 25, total used time 3439.180695772171 (s), avg loss so far is 0.022592339664697647
+Epoch 84, Step 50, total used time 3446.680805206299 (s), avg loss so far is 0.02272295206785202
+Epoch 84, Step 75, total used time 3454.5404748916626 (s), avg loss so far is 0.022516975179314613
+Epoch 84, Step 100, total used time 3462.0607163906097 (s), avg loss so far is 0.02237214334309101
+Epoch 84, Step 125, total used time 3469.573364496231 (s), avg loss so far is 0.0225977785885334
+Epoch 84, val loss is 0.029969340190291405, val mse is 0.01138919685035944.
+Epoch 84, test mse is 0.007040717173367739.
+Starting epoch 85 current lr is 0.0001
+Epoch 85, Step 25, total used time 3482.8783733844757 (s), avg loss so far is 0.023017358034849167
+Epoch 85, Step 50, total used time 3490.3917746543884 (s), avg loss so far is 0.022261803969740868
+Epoch 85, Step 75, total used time 3497.8681824207306 (s), avg loss so far is 0.022455409169197083
+Epoch 85, Step 100, total used time 3505.865828037262 (s), avg loss so far is 0.02224726416170597
+Epoch 85, Step 125, total used time 3513.3886063098907 (s), avg loss so far is 0.022063424810767174
+Epoch 85, val loss is 0.03000011295080185, val mse is 0.011439293622970581.
+Epoch 85, test mse is 0.007027884945273399.
+Starting epoch 86 current lr is 0.0001
+Epoch 86, Step 25, total used time 3526.640964746475 (s), avg loss so far is 0.022135905921459198
+Epoch 86, Step 50, total used time 3534.1920170783997 (s), avg loss so far is 0.022231705486774445
+Epoch 86, Step 75, total used time 3541.6789679527283 (s), avg loss so far is 0.02228405699133873
+Epoch 86, Step 100, total used time 3549.1516289711 (s), avg loss so far is 0.022318873554468155
+Epoch 86, Step 125, total used time 3556.8530719280243 (s), avg loss so far is 0.02245623804628849
+Epoch 86, val loss is 0.030055224895477295, val mse is 0.011452279053628445.
+Epoch 86, test mse is 0.007018180098384619.
+Starting epoch 87 current lr is 0.0001
+Epoch 87, Step 25, total used time 3570.4544715881348 (s), avg loss so far is 0.02251986227929592
+Epoch 87, Step 50, total used time 3578.037611246109 (s), avg loss so far is 0.022530848160386086
+Epoch 87, Step 75, total used time 3585.6216580867767 (s), avg loss so far is 0.02217159979045391
+Epoch 87, Step 100, total used time 3593.1114976406097 (s), avg loss so far is 0.021918166428804398
+Epoch 87, Step 125, total used time 3600.059909582138 (s), avg loss so far is 0.021663060411810875
+Epoch 87, val loss is 0.030009184032678604, val mse is 0.011444452218711376.
+Epoch 87, test mse is 0.007000143639743328.
+Starting epoch 88 current lr is 0.0001
+Epoch 88, Step 25, total used time 3613.1840732097626 (s), avg loss so far is 0.022919921204447746
+Epoch 88, Step 50, total used time 3620.03692483902 (s), avg loss so far is 0.02192397601902485
+Epoch 88, Step 75, total used time 3626.949794769287 (s), avg loss so far is 0.02175183780491352
+Epoch 88, Step 100, total used time 3633.9004707336426 (s), avg loss so far is 0.02207162231206894
+Epoch 88, Step 125, total used time 3640.758156299591 (s), avg loss so far is 0.022157730534672737
+Epoch 88, val loss is 0.029958749189972878, val mse is 0.011379681527614594.
+Epoch 88, test mse is 0.007021761033684015.
+Starting epoch 89 current lr is 0.0001
+Epoch 89, Step 25, total used time 3653.1957800388336 (s), avg loss so far is 0.02154655195772648
+Epoch 89, Step 50, total used time 3660.044534444809 (s), avg loss so far is 0.021420028060674667
+Epoch 89, Step 75, total used time 3667.199420928955 (s), avg loss so far is 0.021126002073287964
+Epoch 89, Step 100, total used time 3673.9742937088013 (s), avg loss so far is 0.021563535556197166
+Epoch 89, Step 125, total used time 3680.746861934662 (s), avg loss so far is 0.021500300616025925
+Epoch 89, val loss is 0.029944470152258873, val mse is 0.011408133432269096.
+Epoch 89, test mse is 0.007019589655101299.
+Starting epoch 90 current lr is 0.0001
+Epoch 90, Step 25, total used time 3693.1776978969574 (s), avg loss so far is 0.021695347502827644
+Epoch 90, Step 50, total used time 3700.051922559738 (s), avg loss so far is 0.021227676421403885
+Epoch 90, Step 75, total used time 3706.8470742702484 (s), avg loss so far is 0.020986497402191162
+Epoch 90, Step 100, total used time 3713.715463399887 (s), avg loss so far is 0.021480578929185867
+Epoch 90, Step 125, total used time 3720.995360851288 (s), avg loss so far is 0.021614188328385353
+Epoch 90, val loss is 0.02992408350110054, val mse is 0.011375012807548046.
+Epoch 90, test mse is 0.006996492389589548.
+Starting epoch 91 current lr is 0.0001
+Epoch 91, Step 25, total used time 3733.432049036026 (s), avg loss so far is 0.022206705063581467
+Epoch 91, Step 50, total used time 3740.1750922203064 (s), avg loss so far is 0.021991975605487823
+Epoch 91, Step 75, total used time 3746.9773366451263 (s), avg loss so far is 0.021933531388640404
+Epoch 91, Step 100, total used time 3753.7706990242004 (s), avg loss so far is 0.021971797570586205
+Epoch 91, Step 125, total used time 3760.648193836212 (s), avg loss so far is 0.02198236621916294
+Epoch 91, val loss is 0.029974307864904404, val mse is 0.011402304284274578.
+Epoch 91, test mse is 0.00700116204097867.
+Starting epoch 92 current lr is 0.0001
+Epoch 92, Step 25, total used time 3773.4772369861603 (s), avg loss so far is 0.021430784836411476
+Epoch 92, Step 50, total used time 3780.2196338176727 (s), avg loss so far is 0.021134182810783386
+Epoch 92, Step 75, total used time 3786.9563295841217 (s), avg loss so far is 0.02181069552898407
+Epoch 92, Step 100, total used time 3793.70783162117 (s), avg loss so far is 0.021878644824028015
+Epoch 92, Step 125, total used time 3800.463651895523 (s), avg loss so far is 0.021846763789653778
+Epoch 92, val loss is 0.029918549582362175, val mse is 0.011352995410561562.
+Epoch 92, test mse is 0.006989005487412214.
+Starting epoch 93 current lr is 0.0001
+Epoch 93, Step 25, total used time 3813.265972852707 (s), avg loss so far is 0.0218743234872818
+Epoch 93, Step 50, total used time 3820.0994033813477 (s), avg loss so far is 0.021845107898116112
+Epoch 93, Step 75, total used time 3827.359565258026 (s), avg loss so far is 0.0217378418892622
+Epoch 93, Step 100, total used time 3834.1151690483093 (s), avg loss so far is 0.02225847914814949
+Epoch 93, Step 125, total used time 3840.911294221878 (s), avg loss so far is 0.022422602400183678
+Epoch 93, val loss is 0.029911808669567108, val mse is 0.011323697865009308.
+Epoch 93, test mse is 0.006986676715314388.
+Starting epoch 94 current lr is 0.0001
+Epoch 94, Step 25, total used time 3853.4448976516724 (s), avg loss so far is 0.0213247649371624
+Epoch 94, Step 50, total used time 3860.1837179660797 (s), avg loss so far is 0.021306829527020454
+Epoch 94, Step 75, total used time 3866.9090526103973 (s), avg loss so far is 0.021637393161654472
+Epoch 94, Step 100, total used time 3873.8008685112 (s), avg loss so far is 0.02165696769952774
+Epoch 94, Step 125, total used time 3880.964079618454 (s), avg loss so far is 0.02152882143855095
+Epoch 94, val loss is 0.02988412231206894, val mse is 0.011335163377225399.
+Epoch 94, test mse is 0.0069906641729176044.
+Starting epoch 95 current lr is 0.0001
+Epoch 95, Step 25, total used time 3893.3472673892975 (s), avg loss so far is 0.020541444420814514
+Epoch 95, Step 50, total used time 3899.9328587055206 (s), avg loss so far is 0.021369939669966698
+Epoch 95, Step 75, total used time 3906.532872915268 (s), avg loss so far is 0.02123318612575531
+Epoch 95, Step 100, total used time 3913.164328098297 (s), avg loss so far is 0.02143539860844612
+Epoch 95, Step 125, total used time 3919.847123146057 (s), avg loss so far is 0.02138991467654705
+Epoch 95, val loss is 0.02992909401655197, val mse is 0.01134850736707449.
+Epoch 95, test mse is 0.006971962749958038.
+Starting epoch 96 current lr is 0.0001
+Epoch 96, Step 25, total used time 3932.5715515613556 (s), avg loss so far is 0.020908767357468605
+Epoch 96, Step 50, total used time 3939.2463991642 (s), avg loss so far is 0.02218322455883026
+Epoch 96, Step 75, total used time 3945.916985988617 (s), avg loss so far is 0.021872716024518013
+Epoch 96, Step 100, total used time 3952.705713748932 (s), avg loss so far is 0.021652204915881157
+Epoch 96, Step 125, total used time 3959.442063331604 (s), avg loss so far is 0.021877601742744446
+Epoch 96, val loss is 0.029893724247813225, val mse is 0.011356142349541187.
+Epoch 96, test mse is 0.006997144315391779.
+Starting epoch 97 current lr is 0.0001
+Epoch 97, Step 25, total used time 3971.8966991901398 (s), avg loss so far is 0.022946171462535858
+Epoch 97, Step 50, total used time 3978.6235609054565 (s), avg loss so far is 0.022114887833595276
+Epoch 97, Step 75, total used time 3985.3472290039062 (s), avg loss so far is 0.022231075912714005
+Epoch 97, Step 100, total used time 3992.4777443408966 (s), avg loss so far is 0.02202274277806282
+Epoch 97, Step 125, total used time 3999.2878386974335 (s), avg loss so far is 0.02176746167242527
+Epoch 97, val loss is 0.029906198382377625, val mse is 0.011395405977964401.
+Epoch 97, test mse is 0.007013963535428047.
+Starting epoch 98 current lr is 0.0001
+Epoch 98, Step 25, total used time 4011.7467880249023 (s), avg loss so far is 0.021515775471925735
+Epoch 98, Step 50, total used time 4018.577414751053 (s), avg loss so far is 0.021856101229786873
+Epoch 98, Step 75, total used time 4025.2388451099396 (s), avg loss so far is 0.021999409422278404
+Epoch 98, Step 100, total used time 4031.941006422043 (s), avg loss so far is 0.022122688591480255
+Epoch 98, Step 125, total used time 4038.64923787117 (s), avg loss so far is 0.022257739678025246
+Epoch 98, val loss is 0.029912684112787247, val mse is 0.01135292649269104.
+Epoch 98, test mse is 0.006983727682381868.
+Starting epoch 99 current lr is 0.0001
+Epoch 99, Step 25, total used time 4051.5116758346558 (s), avg loss so far is 0.022616367787122726
+Epoch 99, Step 50, total used time 4058.4335811138153 (s), avg loss so far is 0.022510377690196037
+Epoch 99, Step 75, total used time 4065.271344900131 (s), avg loss so far is 0.0223114974796772
+Epoch 99, Step 100, total used time 4072.103588104248 (s), avg loss so far is 0.022270234301686287
+Epoch 99, Step 125, total used time 4079.0248000621796 (s), avg loss so far is 0.022476594895124435
+Epoch 99, val loss is 0.02984566055238247, val mse is 0.011322381906211376.
+Epoch 99, test mse is 0.00699415011331439.
+Starting epoch 100 current lr is 0.0001
+Epoch 100, Step 25, total used time 4091.540469646454 (s), avg loss so far is 0.022612502798438072
+Epoch 100, Step 50, total used time 4098.693603992462 (s), avg loss so far is 0.022687578573822975
+Epoch 100, Step 75, total used time 4105.523577928543 (s), avg loss so far is 0.022786617279052734
+Epoch 100, Step 100, total used time 4112.489708662033 (s), avg loss so far is 0.02275450900197029
+Epoch 100, Step 125, total used time 4119.346039533615 (s), avg loss so far is 0.022545751184225082
+Epoch 100, val loss is 0.029866203665733337, val mse is 0.011310563422739506.
+Epoch 100, test mse is 0.0069865575060248375.
+Starting epoch 101 current lr is 0.0001
+Epoch 101, Step 25, total used time 4131.889994859695 (s), avg loss so far is 0.02187606878578663
+Epoch 101, Step 50, total used time 4138.781915903091 (s), avg loss so far is 0.022853508591651917
+Epoch 101, Step 75, total used time 4145.57194519043 (s), avg loss so far is 0.022643569856882095
+Epoch 101, Step 100, total used time 4152.732904672623 (s), avg loss so far is 0.02230364829301834
+Epoch 101, Step 125, total used time 4159.571811437607 (s), avg loss so far is 0.022361332550644875
+Epoch 101, val loss is 0.02989514358341694, val mse is 0.011285735294222832.
+Epoch 101, test mse is 0.006954403128474951.
+Starting epoch 102 current lr is 0.0001
+Epoch 102, Step 25, total used time 4172.8464279174805 (s), avg loss so far is 0.02092731185257435
+Epoch 102, Step 50, total used time 4180.117435216904 (s), avg loss so far is 0.02172345668077469
+Epoch 102, Step 75, total used time 4187.457998275757 (s), avg loss so far is 0.0216312687844038
+Epoch 102, Step 100, total used time 4194.752571821213 (s), avg loss so far is 0.02181544341146946
+Epoch 102, Step 125, total used time 4202.590427398682 (s), avg loss so far is 0.021911419928073883
+Epoch 102, val loss is 0.029879694804549217, val mse is 0.011322299018502235.
+Epoch 102, test mse is 0.006973049603402615.
+Starting epoch 103 current lr is 0.0001
+Epoch 103, Step 25, total used time 4215.715225696564 (s), avg loss so far is 0.02202863246202469
+Epoch 103, Step 50, total used time 4222.9706864356995 (s), avg loss so far is 0.022291149944067
+Epoch 103, Step 75, total used time 4230.269437789917 (s), avg loss so far is 0.022076750174164772
+Epoch 103, Step 100, total used time 4237.552019357681 (s), avg loss so far is 0.02223506011068821
+Epoch 103, Step 125, total used time 4244.915496110916 (s), avg loss so far is 0.022217223420739174
+Epoch 103, val loss is 0.029838483780622482, val mse is 0.011284560896456242.
+Epoch 103, test mse is 0.0069848354905843735.
+Starting epoch 104 current lr is 0.0001
+Epoch 104, Step 25, total used time 4258.687438964844 (s), avg loss so far is 0.022481117397546768
+Epoch 104, Step 50, total used time 4266.311273813248 (s), avg loss so far is 0.021842077374458313
+Epoch 104, Step 75, total used time 4273.877984762192 (s), avg loss so far is 0.021633552387356758
+Epoch 104, Step 100, total used time 4281.448117256165 (s), avg loss so far is 0.021646516397595406
+Epoch 104, Step 125, total used time 4288.9886906147 (s), avg loss so far is 0.021870393306016922
+Epoch 104, val loss is 0.02993815392255783, val mse is 0.011388720013201237.
+Epoch 104, test mse is 0.006994206923991442.
+Starting epoch 105 current lr is 0.0001
+Epoch 105, Step 25, total used time 4302.294635057449 (s), avg loss so far is 0.021017247810959816
+Epoch 105, Step 50, total used time 4310.268369674683 (s), avg loss so far is 0.021442044526338577
+Epoch 105, Step 75, total used time 4317.824202299118 (s), avg loss so far is 0.021680764853954315
+Epoch 105, Step 100, total used time 4325.376347064972 (s), avg loss so far is 0.021996155381202698
+Epoch 105, Step 125, total used time 4332.9377455711365 (s), avg loss so far is 0.022356903180480003
+Epoch 105, val loss is 0.029806330800056458, val mse is 0.011287115514278412.
+Epoch 105, test mse is 0.0069849854335188866.
+Starting epoch 106 current lr is 0.0001
+Epoch 106, Step 25, total used time 4346.1743857860565 (s), avg loss so far is 0.021868687123060226
+Epoch 106, Step 50, total used time 4353.527694940567 (s), avg loss so far is 0.022207414731383324
+Epoch 106, Step 75, total used time 4361.330607414246 (s), avg loss so far is 0.022803878411650658
+Epoch 106, Step 100, total used time 4368.805963277817 (s), avg loss so far is 0.02272837609052658
+Epoch 106, Step 125, total used time 4376.295939207077 (s), avg loss so far is 0.022812258452177048
+Epoch 106, val loss is 0.029872024431824684, val mse is 0.011354811489582062.
+Epoch 106, test mse is 0.006960397586226463.
+Starting epoch 107 current lr is 0.0001
+Epoch 107, Step 25, total used time 4388.812856435776 (s), avg loss so far is 0.022293198853731155
+Epoch 107, Step 50, total used time 4395.574467182159 (s), avg loss so far is 0.021901002153754234
+Epoch 107, Step 75, total used time 4402.3863043785095 (s), avg loss so far is 0.02223070152103901
+Epoch 107, Step 100, total used time 4409.184944391251 (s), avg loss so far is 0.021812334656715393
+Epoch 107, Step 125, total used time 4416.460304737091 (s), avg loss so far is 0.02214673161506653
+Epoch 107, val loss is 0.029865803197026253, val mse is 0.011294475756585598.
+Epoch 107, test mse is 0.006938737817108631.
+Starting epoch 108 current lr is 0.0001
+Epoch 108, Step 25, total used time 4429.245803117752 (s), avg loss so far is 0.021407365798950195
+Epoch 108, Step 50, total used time 4436.161020755768 (s), avg loss so far is 0.02157258242368698
+Epoch 108, Step 75, total used time 4443.017980098724 (s), avg loss so far is 0.021791348233819008
+Epoch 108, Step 100, total used time 4449.903690099716 (s), avg loss so far is 0.02180643565952778
+Epoch 108, Step 125, total used time 4456.809376239777 (s), avg loss so far is 0.021850958466529846
+Epoch 108, val loss is 0.029852909967303276, val mse is 0.011358981020748615.
+Epoch 108, test mse is 0.0069611165672540665.
+Starting epoch 109 current lr is 0.0001
+Epoch 109, Step 25, total used time 4469.9043073654175 (s), avg loss so far is 0.020562583580613136
+Epoch 109, Step 50, total used time 4476.854829311371 (s), avg loss so far is 0.02121826261281967
+Epoch 109, Step 75, total used time 4483.857060909271 (s), avg loss so far is 0.021143944934010506
+Epoch 109, Step 100, total used time 4490.733893632889 (s), avg loss so far is 0.021449031308293343
+Epoch 109, Step 125, total used time 4497.649822473526 (s), avg loss so far is 0.021628176793456078
+Epoch 109, val loss is 0.029852857813239098, val mse is 0.011335943825542927.
+Epoch 109, test mse is 0.006961592938750982.
+Starting epoch 110 current lr is 0.0001
+Epoch 110, Step 25, total used time 4510.408562660217 (s), avg loss so far is 0.02195952646434307
+Epoch 110, Step 50, total used time 4517.339385986328 (s), avg loss so far is 0.02217799983918667
+Epoch 110, Step 75, total used time 4524.683125734329 (s), avg loss so far is 0.022498205304145813
+Epoch 110, Step 100, total used time 4531.611716032028 (s), avg loss so far is 0.022450070828199387
+Epoch 110, Step 125, total used time 4538.603386878967 (s), avg loss so far is 0.02249092049896717
+Epoch 110, val loss is 0.029823781922459602, val mse is 0.011300045996904373.
+Epoch 110, test mse is 0.006951104383915663.
+Starting epoch 111 current lr is 0.0001
+Epoch 111, Step 25, total used time 4551.272126197815 (s), avg loss so far is 0.02309640869498253
+Epoch 111, Step 50, total used time 4558.245049953461 (s), avg loss so far is 0.022457191720604897
+Epoch 111, Step 75, total used time 4565.302854299545 (s), avg loss so far is 0.02251703292131424
+Epoch 111, Step 100, total used time 4572.241229534149 (s), avg loss so far is 0.02244296483695507
+Epoch 111, Step 125, total used time 4579.572962760925 (s), avg loss so far is 0.02238091081380844
+Epoch 111, val loss is 0.02981468290090561, val mse is 0.011280863545835018.
+Epoch 111, test mse is 0.006941461469978094.
+Starting epoch 112 current lr is 0.0001
+Epoch 112, Step 25, total used time 4592.27820110321 (s), avg loss so far is 0.02134154736995697
+Epoch 112, Step 50, total used time 4599.273843050003 (s), avg loss so far is 0.021448740735650063
+Epoch 112, Step 75, total used time 4606.234907150269 (s), avg loss so far is 0.02145404741168022
+Epoch 112, Step 100, total used time 4613.213037967682 (s), avg loss so far is 0.021479666233062744
+Epoch 112, Step 125, total used time 4620.208441734314 (s), avg loss so far is 0.021804291754961014
+Epoch 112, val loss is 0.02978038601577282, val mse is 0.011263681575655937.
+Epoch 112, test mse is 0.006958393845707178.
+Starting epoch 113 current lr is 0.0001
+Epoch 113, Step 25, total used time 4633.369057893753 (s), avg loss so far is 0.022204622626304626
+Epoch 113, Step 50, total used time 4640.290332794189 (s), avg loss so far is 0.022343704476952553
+Epoch 113, Step 75, total used time 4647.208254575729 (s), avg loss so far is 0.02239380031824112
+Epoch 113, Step 100, total used time 4654.121352434158 (s), avg loss so far is 0.022109515964984894
+Epoch 113, Step 125, total used time 4661.0831978321075 (s), avg loss so far is 0.022205227985978127
+Epoch 113, val loss is 0.029906470328569412, val mse is 0.011356990784406662.
+Epoch 113, test mse is 0.006966990884393454.
+Starting epoch 114 current lr is 0.0001
+Epoch 114, Step 25, total used time 4673.8094165325165 (s), avg loss so far is 0.022586245089769363
+Epoch 114, Step 50, total used time 4680.767077207565 (s), avg loss so far is 0.022064991295337677
+Epoch 114, Step 75, total used time 4688.081571340561 (s), avg loss so far is 0.02196275070309639
+Epoch 114, Step 100, total used time 4694.866872787476 (s), avg loss so far is 0.021956412121653557
+Epoch 114, Step 125, total used time 4701.654604673386 (s), avg loss so far is 0.022072145715355873
+Epoch 114, val loss is 0.02974342554807663, val mse is 0.01124873198568821.
+Epoch 114, test mse is 0.006942915264517069.
+Starting epoch 115 current lr is 0.0001
+Epoch 115, Step 25, total used time 4714.172371149063 (s), avg loss so far is 0.021522564813494682
+Epoch 115, Step 50, total used time 4721.092253684998 (s), avg loss so far is 0.021761687472462654
+Epoch 115, Step 75, total used time 4727.990412950516 (s), avg loss so far is 0.0215946976095438
+Epoch 115, Step 100, total used time 4734.987712621689 (s), avg loss so far is 0.021496610715985298
+Epoch 115, Step 125, total used time 4742.255732536316 (s), avg loss so far is 0.02159300073981285
+Epoch 115, val loss is 0.02976645715534687, val mse is 0.011267273686826229.
+Epoch 115, test mse is 0.006952340714633465.
+Starting epoch 116 current lr is 0.0001
+Epoch 116, Step 25, total used time 4754.725960493088 (s), avg loss so far is 0.020728077739477158
+Epoch 116, Step 50, total used time 4761.438921689987 (s), avg loss so far is 0.021109331399202347
+Epoch 116, Step 75, total used time 4768.208420753479 (s), avg loss so far is 0.021802647039294243
+Epoch 116, Step 100, total used time 4775.043331384659 (s), avg loss so far is 0.02206820249557495
+Epoch 116, Step 125, total used time 4781.818999052048 (s), avg loss so far is 0.021786844357848167
+Epoch 116, val loss is 0.029779424890875816, val mse is 0.011271285824477673.
+Epoch 116, test mse is 0.00694546801969409.
+Starting epoch 117 current lr is 0.0001
+Epoch 117, Step 25, total used time 4794.9825801849365 (s), avg loss so far is 0.022047465667128563
+Epoch 117, Step 50, total used time 4802.0047969818115 (s), avg loss so far is 0.022176915779709816
+Epoch 117, Step 75, total used time 4808.876512765884 (s), avg loss so far is 0.022242259234189987
+Epoch 117, Step 100, total used time 4815.7434804439545 (s), avg loss so far is 0.022283492609858513
+Epoch 117, Step 125, total used time 4822.58521604538 (s), avg loss so far is 0.022330932319164276
+Epoch 117, val loss is 0.02978098951280117, val mse is 0.011279850266873837.
+Epoch 117, test mse is 0.0069457353092730045.
+Starting epoch 118 current lr is 0.0001
+Epoch 118, Step 25, total used time 4835.122354745865 (s), avg loss so far is 0.021109281107783318
+Epoch 118, Step 50, total used time 4842.108375787735 (s), avg loss so far is 0.021235976368188858
+Epoch 118, Step 75, total used time 4849.348219394684 (s), avg loss so far is 0.021903889253735542
+Epoch 118, Step 100, total used time 4856.238231658936 (s), avg loss so far is 0.02215745858848095
+Epoch 118, Step 125, total used time 4863.117141962051 (s), avg loss so far is 0.02222706563770771
+Epoch 118, val loss is 0.029818007722496986, val mse is 0.011298921890556812.
+Epoch 118, test mse is 0.00692044897004962.
+Starting epoch 119 current lr is 0.0001
+Epoch 119, Step 25, total used time 4875.671426534653 (s), avg loss so far is 0.022386185824871063
+Epoch 119, Step 50, total used time 4882.594855546951 (s), avg loss so far is 0.022078150883316994
+Epoch 119, Step 75, total used time 4889.463785409927 (s), avg loss so far is 0.022015057504177094
+Epoch 119, Step 100, total used time 4896.407799720764 (s), avg loss so far is 0.021845383569598198
+Epoch 119, Step 125, total used time 4903.6756274700165 (s), avg loss so far is 0.021595174446702003
+Epoch 119, val loss is 0.029729988425970078, val mse is 0.011262270621955395.
+Epoch 119, test mse is 0.0069507271982729435.
+Starting epoch 120 current lr is 0.0001
+Epoch 120, Step 25, total used time 4916.260531425476 (s), avg loss so far is 0.023352287709712982
+Epoch 120, Step 50, total used time 4923.123373270035 (s), avg loss so far is 0.02249642089009285
+Epoch 120, Step 75, total used time 4929.978288650513 (s), avg loss so far is 0.022010596469044685
+Epoch 120, Step 100, total used time 4936.870465993881 (s), avg loss so far is 0.022092748433351517
+Epoch 120, Step 125, total used time 4943.71918296814 (s), avg loss so far is 0.0220632366836071
+Epoch 120, val loss is 0.029834341257810593, val mse is 0.011341380886733532.
+Epoch 120, test mse is 0.00694065447896719.
+Starting epoch 121 current lr is 0.0001
+Epoch 121, Step 25, total used time 4956.723485708237 (s), avg loss so far is 0.02186502516269684
+Epoch 121, Step 50, total used time 4963.616300821304 (s), avg loss so far is 0.022340212017297745
+Epoch 121, Step 75, total used time 4970.545613050461 (s), avg loss so far is 0.02218417450785637
+Epoch 121, Step 100, total used time 4977.489116668701 (s), avg loss so far is 0.022334467619657516
+Epoch 121, Step 125, total used time 4984.314430952072 (s), avg loss so far is 0.02230406180024147
+Epoch 121, val loss is 0.02978527545928955, val mse is 0.01128300093114376.
+Epoch 121, test mse is 0.006931150797754526.
+Starting epoch 122 current lr is 0.0001
+Epoch 122, Step 25, total used time 4997.5909724235535 (s), avg loss so far is 0.021555954590439796
+Epoch 122, Step 50, total used time 5005.110657215118 (s), avg loss so far is 0.022077370434999466
+Epoch 122, Step 75, total used time 5012.95073890686 (s), avg loss so far is 0.0221249982714653
+Epoch 122, Step 100, total used time 5020.486388921738 (s), avg loss so far is 0.022135114297270775
+Epoch 122, Step 125, total used time 5027.973991632462 (s), avg loss so far is 0.02206130512058735
+Epoch 122, val loss is 0.029810698702931404, val mse is 0.011309480294585228.
+Epoch 122, test mse is 0.006942952051758766.
+Starting epoch 123 current lr is 0.0001
+Epoch 123, Step 25, total used time 5041.202408313751 (s), avg loss so far is 0.020687129348516464
+Epoch 123, Step 50, total used time 5048.710224151611 (s), avg loss so far is 0.02123011089861393
+Epoch 123, Step 75, total used time 5056.214954137802 (s), avg loss so far is 0.021868592128157616
+Epoch 123, Step 100, total used time 5064.129511594772 (s), avg loss so far is 0.021816695109009743
+Epoch 123, Step 125, total used time 5071.448343753815 (s), avg loss so far is 0.0220200028270483
+Epoch 123, val loss is 0.029729805886745453, val mse is 0.011264480650424957.
+Epoch 123, test mse is 0.006955711171030998.
+Starting epoch 124 current lr is 0.0001
+Epoch 124, Step 25, total used time 5084.550071239471 (s), avg loss so far is 0.022371571511030197
+Epoch 124, Step 50, total used time 5091.829128980637 (s), avg loss so far is 0.022462937980890274
+Epoch 124, Step 75, total used time 5099.0710916519165 (s), avg loss so far is 0.022070033475756645
+Epoch 124, Step 100, total used time 5106.427463769913 (s), avg loss so far is 0.02215908281505108
+Epoch 124, Step 125, total used time 5113.879471540451 (s), avg loss so far is 0.022374993190169334
+Epoch 124, val loss is 0.029766838997602463, val mse is 0.011232249438762665.
+Epoch 124, test mse is 0.006937425583600998.
+Starting epoch 125 current lr is 0.0001
+Epoch 125, Step 25, total used time 5127.35161280632 (s), avg loss so far is 0.022930238395929337
+Epoch 125, Step 50, total used time 5134.798053979874 (s), avg loss so far is 0.02299402467906475
+Epoch 125, Step 75, total used time 5142.089475393295 (s), avg loss so far is 0.022530898451805115
+Epoch 125, Step 100, total used time 5149.312824726105 (s), avg loss so far is 0.0225384458899498
+Epoch 125, Step 125, total used time 5156.6181082725525 (s), avg loss so far is 0.022515278309583664
+Epoch 125, val loss is 0.02974914386868477, val mse is 0.011242367327213287.
+Epoch 125, test mse is 0.0069327037781476974.
+Starting epoch 126 current lr is 0.0001
+Epoch 126, Step 25, total used time 5170.03155875206 (s), avg loss so far is 0.021381745114922523
+Epoch 126, Step 50, total used time 5177.317339658737 (s), avg loss so far is 0.022008469328284264
+Epoch 126, Step 75, total used time 5184.56218624115 (s), avg loss so far is 0.022014383226633072
+Epoch 126, Step 100, total used time 5191.898113965988 (s), avg loss so far is 0.02203046716749668
+Epoch 126, Step 125, total used time 5199.187113523483 (s), avg loss so far is 0.022125331684947014
+Epoch 126, val loss is 0.02972363866865635, val mse is 0.011239316314458847.
+Epoch 126, test mse is 0.006939759943634272.
+Starting epoch 127 current lr is 0.0001
+Epoch 127, Step 25, total used time 5212.325934171677 (s), avg loss so far is 0.0228832196444273
+Epoch 127, Step 50, total used time 5219.498612880707 (s), avg loss so far is 0.02222011610865593
+Epoch 127, Step 75, total used time 5226.578283786774 (s), avg loss so far is 0.022115612402558327
+Epoch 127, Step 100, total used time 5233.338037967682 (s), avg loss so far is 0.021865276619791985
+Epoch 127, Step 125, total used time 5240.145508766174 (s), avg loss so far is 0.022010572254657745
+Epoch 127, val loss is 0.029734773561358452, val mse is 0.011295114643871784.
+Epoch 127, test mse is 0.00695415074005723.
+Starting epoch 128 current lr is 0.0001
+Epoch 128, Step 25, total used time 5252.917425632477 (s), avg loss so far is 0.02108144573867321
+Epoch 128, Step 50, total used time 5259.603639125824 (s), avg loss so far is 0.02164573036134243
+Epoch 128, Step 75, total used time 5266.302428483963 (s), avg loss so far is 0.02199256233870983
+Epoch 128, Step 100, total used time 5273.010323524475 (s), avg loss so far is 0.02199392579495907
+Epoch 128, Step 125, total used time 5280.090436697006 (s), avg loss so far is 0.02200700156390667
+Epoch 128, val loss is 0.02976735681295395, val mse is 0.011266286484897137.
+Epoch 128, test mse is 0.006920145358890295.
+Starting epoch 129 current lr is 0.0001
+Epoch 129, Step 25, total used time 5292.558629512787 (s), avg loss so far is 0.021974079310894012
+Epoch 129, Step 50, total used time 5299.31524348259 (s), avg loss so far is 0.022035712376236916
+Epoch 129, Step 75, total used time 5306.123964548111 (s), avg loss so far is 0.02195017784833908
+Epoch 129, Step 100, total used time 5312.962765216827 (s), avg loss so far is 0.022124988958239555
+Epoch 129, Step 125, total used time 5319.746025800705 (s), avg loss so far is 0.021990226581692696
+Epoch 129, val loss is 0.029734840616583824, val mse is 0.011276927776634693.
+Epoch 129, test mse is 0.006928556598722935.
+Starting epoch 130 current lr is 0.0001
+Epoch 130, Step 25, total used time 5332.717849731445 (s), avg loss so far is 0.022501032799482346
+Epoch 130, Step 50, total used time 5339.561633110046 (s), avg loss so far is 0.021642114967107773
+Epoch 130, Step 75, total used time 5346.368088245392 (s), avg loss so far is 0.021551547572016716
+Epoch 130, Step 100, total used time 5353.134381532669 (s), avg loss so far is 0.02160894311964512
+Epoch 130, Step 125, total used time 5359.7945437431335 (s), avg loss so far is 0.021823124960064888
+Epoch 130, val loss is 0.029751498252153397, val mse is 0.011266547255218029.
+Epoch 130, test mse is 0.006919470615684986.
+Starting epoch 131 current lr is 0.0001
+Epoch 131, Step 25, total used time 5372.595637083054 (s), avg loss so far is 0.02297377772629261
+Epoch 131, Step 50, total used time 5379.652186632156 (s), avg loss so far is 0.021782539784908295
+Epoch 131, Step 75, total used time 5387.0160048007965 (s), avg loss so far is 0.021734265610575676
+Epoch 131, Step 100, total used time 5393.940219402313 (s), avg loss so far is 0.021278327330946922
+Epoch 131, Step 125, total used time 5400.86194729805 (s), avg loss so far is 0.0212822537869215
+Epoch 131, val loss is 0.02972724661231041, val mse is 0.011257873848080635.
+Epoch 131, test mse is 0.006917578633874655.
+Starting epoch 132 current lr is 0.0001
+Epoch 132, Step 25, total used time 5413.504573345184 (s), avg loss so far is 0.021721474826335907
+Epoch 132, Step 50, total used time 5420.352734804153 (s), avg loss so far is 0.02164190262556076
+Epoch 132, Step 75, total used time 5427.236290931702 (s), avg loss so far is 0.021332552656531334
+Epoch 132, Step 100, total used time 5434.104791641235 (s), avg loss so far is 0.021533269435167313
+Epoch 132, Step 125, total used time 5441.395271539688 (s), avg loss so far is 0.021503468975424767
+Epoch 132, val loss is 0.029752375558018684, val mse is 0.011286464519798756.
+Epoch 132, test mse is 0.006899401545524597.
+Starting epoch 133 current lr is 0.0001
+Epoch 133, Step 25, total used time 5453.95268034935 (s), avg loss so far is 0.021330639719963074
+Epoch 133, Step 50, total used time 5460.820028305054 (s), avg loss so far is 0.02163713052868843
+Epoch 133, Step 75, total used time 5467.6772973537445 (s), avg loss so far is 0.021433554589748383
+Epoch 133, Step 100, total used time 5474.477883338928 (s), avg loss so far is 0.021516229957342148
+Epoch 133, Step 125, total used time 5481.243344306946 (s), avg loss so far is 0.02134847268462181
+Epoch 133, val loss is 0.029825447127223015, val mse is 0.011330380104482174.
+Epoch 133, test mse is 0.006916705518960953.
+Starting epoch 134 current lr is 0.0001
+Epoch 134, Step 25, total used time 5494.268822431564 (s), avg loss so far is 0.02142306976020336
+Epoch 134, Step 50, total used time 5501.118841171265 (s), avg loss so far is 0.021698875352740288
+Epoch 134, Step 75, total used time 5507.948776245117 (s), avg loss so far is 0.021933484822511673
+Epoch 134, Step 100, total used time 5514.774106264114 (s), avg loss so far is 0.021673064678907394
+Epoch 134, Step 125, total used time 5521.576786518097 (s), avg loss so far is 0.021771570667624474
+Epoch 134, val loss is 0.029770873486995697, val mse is 0.011308579705655575.
+Epoch 134, test mse is 0.006928035523742437.
+Starting epoch 135 current lr is 0.0001
+Epoch 135, Step 25, total used time 5534.181793928146 (s), avg loss so far is 0.022803116589784622
+Epoch 135, Step 50, total used time 5540.980145454407 (s), avg loss so far is 0.0220370814204216
+Epoch 135, Step 75, total used time 5548.269675731659 (s), avg loss so far is 0.021559718996286392
+Epoch 135, Step 100, total used time 5555.069490671158 (s), avg loss so far is 0.021735673770308495
+Epoch 135, Step 125, total used time 5561.888785362244 (s), avg loss so far is 0.021486671641469002
+Epoch 135, val loss is 0.0297035351395607, val mse is 0.0112352529540658.
+Epoch 135, test mse is 0.006901474669575691.
+Starting epoch 136 current lr is 0.0001
+Epoch 136, Step 25, total used time 5574.562167644501 (s), avg loss so far is 0.022099127992987633
+Epoch 136, Step 50, total used time 5581.269783258438 (s), avg loss so far is 0.022264724597334862
+Epoch 136, Step 75, total used time 5587.911041498184 (s), avg loss so far is 0.022078515961766243
+Epoch 136, Step 100, total used time 5594.652705907822 (s), avg loss so far is 0.0219280943274498
+Epoch 136, Step 125, total used time 5601.840842247009 (s), avg loss so far is 0.021747542545199394
+Epoch 136, val loss is 0.029798829928040504, val mse is 0.011352929286658764.
+Epoch 136, test mse is 0.0069478522054851055.
+Starting epoch 137 current lr is 0.0001
+Epoch 137, Step 25, total used time 5614.447119235992 (s), avg loss so far is 0.022176070138812065
+Epoch 137, Step 50, total used time 5621.247031927109 (s), avg loss so far is 0.022043151780962944
+Epoch 137, Step 75, total used time 5627.989291906357 (s), avg loss so far is 0.021946679800748825
+Epoch 137, Step 100, total used time 5634.754705429077 (s), avg loss so far is 0.021877389401197433
+Epoch 137, Step 125, total used time 5641.476630687714 (s), avg loss so far is 0.02180631086230278
+Epoch 137, val loss is 0.029754722490906715, val mse is 0.011259038001298904.
+Epoch 137, test mse is 0.006895535159856081.
+Starting epoch 138 current lr is 0.0001
+Epoch 138, Step 25, total used time 5654.282528400421 (s), avg loss so far is 0.021332355216145515
+Epoch 138, Step 50, total used time 5661.171062707901 (s), avg loss so far is 0.021417286247015
+Epoch 138, Step 75, total used time 5667.893101930618 (s), avg loss so far is 0.02123359404504299
+Epoch 138, Step 100, total used time 5674.635913848877 (s), avg loss so far is 0.02144746296107769
+Epoch 138, Step 125, total used time 5681.339003801346 (s), avg loss so far is 0.021303340792655945
+Epoch 138, val loss is 0.02975759282708168, val mse is 0.011305860243737698.
+Epoch 138, test mse is 0.006905416492372751.
+Starting epoch 139 current lr is 0.0001
+Epoch 139, Step 25, total used time 5693.7348029613495 (s), avg loss so far is 0.020824721083045006
+Epoch 139, Step 50, total used time 5700.425595521927 (s), avg loss so far is 0.021856877952814102
+Epoch 139, Step 75, total used time 5707.589988231659 (s), avg loss so far is 0.021836474537849426
+Epoch 139, Step 100, total used time 5714.335791826248 (s), avg loss so far is 0.021843023598194122
+Epoch 139, Step 125, total used time 5721.065620422363 (s), avg loss so far is 0.021619686856865883
+Epoch 139, val loss is 0.0297203678637743, val mse is 0.011209418997168541.
+Epoch 139, test mse is 0.006900153588503599.
+Starting epoch 140 current lr is 0.0001
+Epoch 140, Step 25, total used time 5733.592134237289 (s), avg loss so far is 0.022563360631465912
+Epoch 140, Step 50, total used time 5740.233926773071 (s), avg loss so far is 0.022791963070631027
+Epoch 140, Step 75, total used time 5746.888660430908 (s), avg loss so far is 0.022644687443971634
+Epoch 140, Step 100, total used time 5753.632498502731 (s), avg loss so far is 0.022506849840283394
+Epoch 140, Step 125, total used time 5760.690831422806 (s), avg loss so far is 0.02243855409324169
+Epoch 140, val loss is 0.02974110096693039, val mse is 0.011274291202425957.
+Epoch 140, test mse is 0.006919011007994413.
+Starting epoch 141 current lr is 0.0001
+Epoch 141, Step 25, total used time 5773.177604198456 (s), avg loss so far is 0.021459249779582024
+Epoch 141, Step 50, total used time 5779.884477138519 (s), avg loss so far is 0.021850071847438812
+Epoch 141, Step 75, total used time 5786.598440408707 (s), avg loss so far is 0.021944560110569
+Epoch 141, Step 100, total used time 5793.397660017014 (s), avg loss so far is 0.02180006541311741
+Epoch 141, Step 125, total used time 5800.061470031738 (s), avg loss so far is 0.021782511845231056
+Epoch 141, val loss is 0.029664890840649605, val mse is 0.011174160987138748.
+Epoch 141, test mse is 0.0068966057151556015.
+Starting epoch 142 current lr is 0.0001
+Epoch 142, Step 25, total used time 5813.058365106583 (s), avg loss so far is 0.021572085097432137
+Epoch 142, Step 50, total used time 5820.8365025520325 (s), avg loss so far is 0.021804826334118843
+Epoch 142, Step 75, total used time 5828.22097826004 (s), avg loss so far is 0.02167695388197899
+Epoch 142, Step 100, total used time 5835.477494478226 (s), avg loss so far is 0.02201429381966591
+Epoch 142, Step 125, total used time 5843.101925134659 (s), avg loss so far is 0.022076519206166267
+Epoch 142, val loss is 0.029777558520436287, val mse is 0.011333264410495758.
+Epoch 142, test mse is 0.006906155962496996.
+Starting epoch 143 current lr is 0.0001
+Epoch 143, Step 25, total used time 5856.300956249237 (s), avg loss so far is 0.02154257334768772
+Epoch 143, Step 50, total used time 5863.571256160736 (s), avg loss so far is 0.022147275507450104
+Epoch 143, Step 75, total used time 5871.204279661179 (s), avg loss so far is 0.02209635078907013
+Epoch 143, Step 100, total used time 5878.5209703445435 (s), avg loss so far is 0.02234969288110733
+Epoch 143, Step 125, total used time 5885.863838434219 (s), avg loss so far is 0.022042078897356987
+Epoch 143, val loss is 0.02973877638578415, val mse is 0.01130684744566679.
+Epoch 143, test mse is 0.006923184730112553.
+Starting epoch 144 current lr is 0.0001
+Epoch 144, Step 25, total used time 5898.979866981506 (s), avg loss so far is 0.02264406532049179
+Epoch 144, Step 50, total used time 5906.346079587936 (s), avg loss so far is 0.02206682600080967
+Epoch 144, Step 75, total used time 5913.781297683716 (s), avg loss so far is 0.022325174883008003
+Epoch 144, Step 100, total used time 5921.12291264534 (s), avg loss so far is 0.022046295925974846
+Epoch 144, Step 125, total used time 5928.797432422638 (s), avg loss so far is 0.02218330278992653
+Epoch 144, val loss is 0.029655762016773224, val mse is 0.011197561398148537.
+Epoch 144, test mse is 0.006900157779455185.
+Starting epoch 145 current lr is 0.0001
+Epoch 145, Step 25, total used time 5942.077350854874 (s), avg loss so far is 0.022489622235298157
+Epoch 145, Step 50, total used time 5949.452330350876 (s), avg loss so far is 0.022655809298157692
+Epoch 145, Step 75, total used time 5956.773123502731 (s), avg loss so far is 0.02201099321246147
+Epoch 145, Step 100, total used time 5964.112491846085 (s), avg loss so far is 0.021825382485985756
+Epoch 145, Step 125, total used time 5971.460820913315 (s), avg loss so far is 0.021738175302743912
+Epoch 145, val loss is 0.029817307367920876, val mse is 0.011364218778908253.
+Epoch 145, test mse is 0.0069083054549992085.
+Starting epoch 146 current lr is 0.0001
+Epoch 146, Step 25, total used time 5984.926136732101 (s), avg loss so far is 0.02241636998951435
+Epoch 146, Step 50, total used time 5992.298706293106 (s), avg loss so far is 0.021263565868139267
+Epoch 146, Step 75, total used time 5999.67299580574 (s), avg loss so far is 0.02090715430676937
+Epoch 146, Step 100, total used time 6007.091334581375 (s), avg loss so far is 0.021254735067486763
+Epoch 146, Step 125, total used time 6014.155445098877 (s), avg loss so far is 0.021450065076351166
+Epoch 146, val loss is 0.029672415927052498, val mse is 0.011240383610129356.
+Epoch 146, test mse is 0.006901927292346954.
+Starting epoch 147 current lr is 0.0001
+Epoch 147, Step 25, total used time 6026.574007034302 (s), avg loss so far is 0.021209554746747017
+Epoch 147, Step 50, total used time 6033.5023674964905 (s), avg loss so far is 0.021440131589770317
+Epoch 147, Step 75, total used time 6040.4956612586975 (s), avg loss so far is 0.0220920629799366
+Epoch 147, Step 100, total used time 6047.158930778503 (s), avg loss so far is 0.021976079791784286
+Epoch 147, Step 125, total used time 6053.795456409454 (s), avg loss so far is 0.02171594463288784
+Epoch 147, val loss is 0.02970987744629383, val mse is 0.01125149242579937.
+Epoch 147, test mse is 0.006899459753185511.
+Starting epoch 148 current lr is 0.0001
+Epoch 148, Step 25, total used time 6066.223151445389 (s), avg loss so far is 0.021692492067813873
+Epoch 148, Step 50, total used time 6072.854695081711 (s), avg loss so far is 0.021479692310094833
+Epoch 148, Step 75, total used time 6079.488427877426 (s), avg loss so far is 0.02143121510744095
+Epoch 148, Step 100, total used time 6086.161169528961 (s), avg loss so far is 0.021583426743745804
+Epoch 148, Step 125, total used time 6093.445232391357 (s), avg loss so far is 0.021572865545749664
+Epoch 148, val loss is 0.029711805284023285, val mse is 0.01126455795019865.
+Epoch 148, test mse is 0.006898073013871908.
+Starting epoch 149 current lr is 0.0001
+Epoch 149, Step 25, total used time 6106.117136955261 (s), avg loss so far is 0.02068365179002285
+Epoch 149, Step 50, total used time 6112.939193487167 (s), avg loss so far is 0.021455978974699974
+Epoch 149, Step 75, total used time 6119.785152435303 (s), avg loss so far is 0.02191365510225296
+Epoch 149, Step 100, total used time 6126.61102938652 (s), avg loss so far is 0.0219561830163002
+Epoch 149, Step 125, total used time 6133.418160438538 (s), avg loss so far is 0.02204209193587303
+Epoch 149, val loss is 0.029728464782238007, val mse is 0.011231481097638607.
+Epoch 149, test mse is 0.006897665094584227.
