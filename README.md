@@ -41,7 +41,7 @@ PredNet是一个利用神经生物学中的预测性编码（Predictive Coding�
 
 ### 2.1 数据集
 
-本项目使用[KITTI数据集](http://www.cvlibs.net/datasets/kitti/)进行训练。按照论文中的设置，将RGB图像降采样至128x160。由于原始KITTI数据过大（~165G），作者在[DropBox](https://github.com/coxlab/prednet/blob/master/download_data.sh)上提供了处理过的版本。又由于处理过后的数据为`.hkl`格式，只能在python2中使用hickle 2.1.0进行加载，所以我将数据集转换为`hdf5`格式，上传至[AI Studio](https://aistudio.baidu.com/aistudio/datasetdetail/119650)。本地运行代码的同学可下载三个数据文件放置于`kitti_data`中。
+本项目使用[KITTI数据集](http://www.cvlibs.net/datasets/kitti/)进行训练。按照论文中的设置，将RGB图像降采样至128x160。由于原始KITTI数据过大（~165G），作者在[DropBox](https://www.dropbox.com/s/rpwlnn6j39jjme4/kitti_data.zip)上提供了处理过的版本。又由于处理过后的数据为`.hkl`格式，只能在python2中使用hickle 2.1.0进行加载，所以我将数据集转换为`hdf5`格式，上传至[AI Studio](https://aistudio.baidu.com/aistudio/datasetdetail/119650)。本地运行代码的同学可下载三个数据文件放置于`kitti_data`中。
 
 数据分为train，val，test三个数据集，分别包含41396，154，832张图像。每个文件中包含两个变量，`images`为所有图像帧，`sources`是每帧图像
 的来源，用于判断帧之间的连续性。
