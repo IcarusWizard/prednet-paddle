@@ -15,10 +15,11 @@
         * [训练](#训练)
         * [测试](#测试)
   * [4. 代码结构](#4-代码结构)
+  * [5. 复现心得](#5-复现心得)
 
 ## 1. 简介
 
-PredNet是一个利用神经生物学中的预测性编码（Predictive Coding）原理所构建的视频预测模型，预测过程自顶向下，感知过程自底向上，其结构图如下所示。整个网络为层级结构，每一层都会通过R来计算A_hat以预测输入A，两者的差异E再作为输入传递给下一层。其中R为每一层的表征，由一个LSTM来完成对时续信息的整合。特别的是R的输入除了由当前层的误差E外，还包含高层的表征，从而使得顶层的语义信息可以向底层传递。
+PredNet是一个利用神经生物学中的预测性编码（Predictive Coding）原理所构建的视频预测模型，预测过程自顶向下，感知过程自底向上，对于其本身原理更感兴趣的同学可以参考[Wikipedia](https://en.wikipedia.org/wiki/Predictive_coding)。PreNet为该原理在视频数据上的一个实现，结构如下所示。网络为层级结构，每一层都会通过R来计算A_hat以预测输入A，两者的差异E再作为输入传递给下一层。其中R为每一层的表征，由一个LSTM来完成对时序信息的整合。特别的是R的输入除了由当前层的误差E外，还包含高层的表征，从而使得顶层的语义信息可以向底层传递。
 
 ![avatar](pic/PredNet.png)
 
@@ -41,7 +42,9 @@ PredNet是一个利用神经生物学中的预测性编码（Predictive Coding�
 
 ### 2.1 数据集
 
-本项目使用[KITTI数据集](http://www.cvlibs.net/datasets/kitti/)进行训练。按照论文中的设置，将RGB图像降采样至128x160。由于原始KITTI数据过大（~165G），作者在[DropBox](https://www.dropbox.com/s/rpwlnn6j39jjme4/kitti_data.zip)上提供了处理过的版本。又由于处理过后的数据为`.hkl`格式，只能在python2中使用hickle 2.1.0进行加载，所以我将数据集转换为`hdf5`格式，上传至[AI Studio](https://aistudio.baidu.com/aistudio/datasetdetail/119650)。本地运行代码的同学可下载三个数据文件放置于`kitti_data`中。
+本项目使用[KITTI数据集](http://www.cvlibs.net/datasets/kitti/)进行训练。KITTI是一个自动驾驶领域常用的数据集，其由配置了传感器的汽车于德国卡尔斯鲁厄采集，数据中包含了双目彩色图像、深度图像、雷达点云等传感数据，并提供目标检测、实例分割等常见CV任务的标签。
+
+按照论文中的设置，将RGB图像降采样至128x160。由于原始KITTI数据过大（~165G），作者在[DropBox](https://www.dropbox.com/s/rpwlnn6j39jjme4/kitti_data.zip)上提供了处理过的版本。又由于处理过后的数据为`.hkl`格式，只能在python2中使用hickle 2.1.0进行加载，所以我将数据集转换为`hdf5`格式，上传至[AI Studio](https://aistudio.baidu.com/aistudio/datasetdetail/119650)。本地运行代码的同学可下载三个数据文件放置于`kitti_data`中。
 
 数据分为train，val，test三个数据集，分别包含41396，154，832张图像。每个文件中包含两个变量，`images`为所有图像帧，`sources`是每帧图像
 的来源，用于判断帧之间的连续性。
@@ -103,3 +106,12 @@ python kitti_evaluate.py --weight_file model_data_keras2/tensorflow_weights/pred
 ├── requirements.txt # 依赖包
 └── utils.py # 功能函数
 ```
+
+## 5. 复现心得
+PredNet作为2016年的模型，与现在的模型相比更加纯粹一些，没有各种花式trick，复现起来相对容易。
+
+原始代码是使用keras实现的，所以在复现时有几个小细节需要注意：
+- 默认初始化方式：keras的默认初始化方式为`XavierUniform`，而paddle的默认初始化方式为`XavierNormal`，本项目通过传入`weight_attr`进行修改。
+- HardSigmoid表达式：keras为`clip(x/5+0.5, 0, 1)`，而paddle为`clip(x/6+0.5, 0, 1)`，本项目通过重写HardSigmoid进行对齐。
+
+可能受限于当时的计算资源，作者并没有对模型进行深度的调参，在实验的过程中发现，调整学习率衰减率至0.5,训练400个epoch，test MSE可以达到0.006546，并且仍在减少，说明模型的潜力还没有被完全发掘。感兴趣的同学可以继续调参~
