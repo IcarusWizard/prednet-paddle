@@ -108,6 +108,7 @@ python kitti_evaluate.py --weight_file model_data_keras2/tensorflow_weights/pred
 ├── kitti_settings.py # 路径定义
 ├── kitti_train.py # 训练脚本
 ├── prednet.py # 网络定义
+├── demo.py # gif预测脚本
 ├── requirements.txt # 依赖包
 └── utils.py # 功能函数
 ```
