@@ -91,6 +91,10 @@ python kitti_evaluate.py --weight_file model_data_keras2/tensorflow_weights/pred
 项目同时提供以gif文件为输入的预测demo，我们提供了`gif/demo.gif`为示例文件，运行以下代码可产生预测gif：
 `python demo.py --input gif/demo.gif --output gif/demo_output.gif`
 
+效果如下，左侧为输入gif，右侧为预测gif:
+
+![avatar](gif/demo.gif) ![avatar](gif/demo_output.gif)
+
 ## 4. 代码结构
 
 ```
