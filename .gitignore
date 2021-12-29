@@ -134,3 +134,4 @@ model_data_keras2/
 kitti_weights/
 *.bak
 logs/
+gif/

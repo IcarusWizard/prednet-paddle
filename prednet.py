@@ -173,16 +173,21 @@ class PredNet(nn.Layer):
         B, H, W = size
         lstm_states = [(self.lstms[l].reset((B, H//2**l, W//2**l))) for l in range(self.nb_layers)]
         errors = [paddle.zeros((B, 2 * self.stack_sizes[l], H//2**l, W//2**l)) for l in range(self.nb_layers)]
-        return lstm_states, errors
+        frame = paddle.zeros((B, 3, H, W))
+        return lstm_states, errors, frame
 
-    def forward(self, sequence):
+    def forward(self, sequence, nt=None):
         T, B, C, H, W = sequence.shape
         assert self.stack_sizes[0] == C
+        if nt is None: nt = T
 
         states = self.reset((B, H, W))
         outputs = []
-        for t in range(T):
-            output, states = self.step(sequence[t], states)
+        for t in range(nt):
+            if t < T:
+                output, states = self.step(sequence[t], states)
+            else:
+                output, states = self.step(states[-1], states)
             outputs.append(output)
 
         if self.output_mode == 'all':
@@ -194,7 +199,7 @@ class PredNet(nn.Layer):
 
     def step(self, x, states):
         '''follow the pseudocode in Sec.2'''
-        lstm_states, errors = states
+        lstm_states, errors, _ = states
 
         for l in reversed(range(self.nb_layers)):
             if l < self.nb_layers - 1:
@@ -219,7 +224,7 @@ class PredNet(nn.Layer):
         elif self.output_mode == 'all':
             output = (paddle.stack([paddle.mean(e.reshape((e.shape[0], -1)), axis=1) for e in errors], axis=-1), frame_prediction)
 
-        return output, (lstm_states, errors)
+        return output, (lstm_states, errors, frame_prediction)
 
 if __name__ == '__main__':
     model = PredNet()
